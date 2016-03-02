@@ -1,11 +1,12 @@
 #include "plat.h"
 
-plat::plat(string _nom, vector<string> _ingredient, int _avis, int _calorie, int _prix){
+plat::plat(string _nom, vector<string> _ingredient, int _avis, int _calorie, int _prix, const QString imagePath){
     nom = _nom;
     ingredient = _ingredient;
     avis = _avis;
     calorie = _calorie;
     prix = _prix;
+    image = new QPixmap(imagePath);
 }
 
 plat::~plat(){
