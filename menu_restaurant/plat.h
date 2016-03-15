@@ -10,7 +10,7 @@ using namespace std;
 class plat
 {
 public:
-    plat(string _nom, vector<string> _ingredient, int _avis, int _calorie, int _prix);
+    plat(string _nom="", vector<string> _ingredient={}, int _avis=0, int _calorie=0, int _prix=0, const QString imagePath="");
      ~plat();
 
     string getNom() const;
