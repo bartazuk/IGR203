@@ -11,8 +11,6 @@
 using std::map;
 using std::vector;
 
-typedef std::shared_ptr<plat> platPtr;
-
 class Menu
 {
 public:
@@ -21,13 +19,8 @@ public:
         static Menu instance;
         return instance;
     }
-
     void print(){
-        for(auto it:plats){
-            std::cout << "Name: "<< it.first << std::endl;
-            std::cout << "Avis: "<<it.second->getAvis() << std::endl;
-        }
-        std::cout << "crash?" <<std::endl;
+        std::cout << "Hello" << std::endl;
     }
 
 private:
@@ -36,14 +29,14 @@ private:
     Menu(const Menu&);
     Menu& operator=(const Menu&);
 
-    void createPlat(QXmlStreamReader&, platPtr, string type);
+    void createPlat(QXmlStreamReader&, plat *, string type);
     void createPlatDuJour(QXmlStreamReader&);
 
-    map<string,platPtr> entrees;
-    map<string,platPtr> plats;
-    map<string,platPtr> desserts;
-    map<string,platPtr> vins;
-    map<string,platPtr> platDuJour;
+    map<string,plat *> entrees;
+    map<string,plat *> plats;
+    map<string,plat *> desserts;
+    map<string,plat *> vins;
+    map<string,plat *> platDuJour;
     int prixPlatDuJour;
 };
 

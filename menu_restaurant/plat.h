@@ -21,7 +21,7 @@ using namespace std;
 class plat
 {
 public:
-    plat(string _nom="", vector<string> _ingredient={}, int _avis=-1, int _calorie=-1, int _prix=-1, const QString imagePath="");
+    plat(string _nom, vector<string> _ingredient={}, int _avis=-1, int _calorie=-1, int _prix=-1, const QString imagePath="");
     plat();
      ~plat();
 

@@ -10,7 +10,7 @@
 //two functions to assist the xml parsing
 //createPlat and createPlatDuJour
 
-void Menu::createPlat(QXmlStreamReader& rxml, platPtr p, string type){
+void Menu::createPlat(QXmlStreamReader& rxml, plat * p, string type){
     while(!rxml.atEnd()){
         rxml.readNext();
         if(rxml.isEndElement() && rxml.name()==QString::fromStdString(type)) break;
@@ -80,7 +80,7 @@ Menu::Menu()
             else
             {
                 string type=rxml.name().toString().toStdString();
-                platPtr p(new plat());
+                plat * p(new plat());
                 createPlat(rxml,p,type);
                 std::cout << type << " "<< p->getNom() << std::endl;
 

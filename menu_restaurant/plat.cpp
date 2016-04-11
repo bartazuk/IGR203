@@ -55,7 +55,7 @@ int plat::getCalorie() const
 
 void plat::setCalorie(int _calorie)
 {
-    if (calorie < 0)
+    if (calorie > 0)
         calorie = _calorie;
     else
         ERROR_BAD_VALUE(calorie, _calorie);
