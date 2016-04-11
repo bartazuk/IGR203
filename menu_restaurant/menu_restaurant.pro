@@ -15,11 +15,15 @@ CONFIG += c++11
 SOURCES += main.cpp\
         mainwindow.cpp \
     plat.cpp \
-    menu.cpp
+    menu.cpp \
+    food_list.cpp \
+    boisson.cpp
 
 HEADERS  += mainwindow.h \
     plat.h \
-    menu.h
+    menu.h \
+    food_list.h \
+    boisson.h
 
 FORMS    += mainwindow.ui
 

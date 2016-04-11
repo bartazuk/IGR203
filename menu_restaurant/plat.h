@@ -4,13 +4,24 @@
 #include <vector>
 #include <QPixmap>
 #include <QString>
+#include <iostream>
+
+// Efface le warning de "unused variable"
+#define UNUSED(var)         (void) var
+
+// Affiche l'erreur quand on appelle un getter ou setter d'un attribut qui n'est pas utilisé dans la classe courante
+#define ERROR_NO_ATTRIB(attribut, classe)       cout << "ERROR_NO_ATTRIB: No attribute " << #attribut <<         \
+                                                " in class " << #classe << endl
+
+// Affiche l'erreur si on met une mauvaise valeur dans un attribut
+#define ERROR_BAD_VALUE(attribut, value)        cout << "ERROR_BAD_VALUE: " << #attribut << " cannot be " << value << endl
 
 using namespace std;
 
 class plat
 {
 public:
-    plat(string _nom="", vector<string> _ingredient={}, int _avis=0, int _calorie=0, int _prix=0, const QString imagePath="");
+    plat(string _nom="", vector<string> _ingredient={}, int _avis=-1, int _calorie=-1, int _prix=-1, const QString imagePath="");
      ~plat();
 
     string getNom() const;
@@ -31,7 +42,7 @@ public:
     QPixmap * getImage() const;
     void setImage(const QString value);
 
-private:
+protected:
     string nom;
     vector<string> ingredient;
     int avis;

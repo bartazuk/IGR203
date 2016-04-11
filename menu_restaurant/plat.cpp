@@ -1,12 +1,12 @@
 #include "plat.h"
 
-plat::plat(string _nom, vector<string> _ingredient, int _avis, int _calorie, int _prix, const QString imagePath){
-    nom = _nom;
-    ingredient = _ingredient;
-    avis = _avis;
-    calorie = _calorie;
-    prix = _prix;
-    image = new QPixmap(imagePath);
+plat::plat(string _nom, vector<string> _ingredient, int _avis, int _calorie, int _prix, const QString _imagePath){
+    setNom(_nom);
+    setIngredient(_ingredient);
+    setAvis(_avis);
+    setCalorie(_calorie);
+    setPrix(_prix);
+    setImage(_imagePath);
 }
 
 plat::~plat(){
@@ -38,7 +38,10 @@ int plat::getAvis() const
 
 void plat::setAvis(int _avis)
 {
-    avis = _avis;
+    if (_avis >= 0 && _avis <= 5)
+        avis = _avis;
+    else
+        ERROR_BAD_VALUE(avis, _avis);
 }
 int plat::getCalorie() const
 {
@@ -47,7 +50,10 @@ int plat::getCalorie() const
 
 void plat::setCalorie(int _calorie)
 {
-    calorie = _calorie;
+    if (calorie < 0)
+        calorie = _calorie;
+    else
+        ERROR_BAD_VALUE(calorie, _calorie);
 }
 int plat::getPrix() const
 {
@@ -56,7 +62,10 @@ int plat::getPrix() const
 
 void plat::setPrix(int _prix)
 {
-    prix = _prix;
+    if (prix >= 0)
+        prix = _prix;
+    else
+        ERROR_BAD_VALUE(prix, _prix);
 }
 QPixmap * plat::getImage() const
 {
@@ -65,7 +74,10 @@ QPixmap * plat::getImage() const
 
 void plat::setImage(const QString path)
 {
-    image = new QPixmap(path);
+    if (path.size() > 0)
+        image = new QPixmap(path);
+    else
+        ERROR_BAD_VALUE(image, path.toStdString());
 }
 
 
