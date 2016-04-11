@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "plat.h"
+#include "boisson.h"
 #include "menu.h"
 #include <string>
 #include <vector>
@@ -10,5 +11,6 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
+
     return a.exec();
 }
