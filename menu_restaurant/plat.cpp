@@ -1,5 +1,10 @@
 #include "plat.h"
 
+plat::plat()
+{
+
+}
+
 plat::plat(string _nom, vector<string> _ingredient, int _avis, int _calorie, int _prix, const QString _imagePath){
     setNom(_nom);
     setIngredient(_ingredient);
