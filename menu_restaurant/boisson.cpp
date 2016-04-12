@@ -1,5 +1,7 @@
 #include "boisson.h"
 
+boisson::boisson(){}
+
 boisson::boisson(string _nom, int _avis, int _prix, const QString _imagePath):
     plat(_nom, {}, _avis, 0,_prix, _imagePath){}
 
@@ -16,17 +18,14 @@ void boisson::setAlcool_degre(float value)
         ERROR_BAD_VALUE(alcool_degre, value);
 }
 
-int boisson::getTaille() const
+vector<int> boisson::getTaille() const
 {
     return taille;
 }
 
-void boisson::setTaille(int value)
+void boisson::setTaille(vector<int> value)
 {
-    if (taille > 0)
-        taille = value;
-    else
-        ERROR_BAD_VALUE(taille, value);
+    taille = value;
 }
 
 bool boisson::isAlcool()
@@ -61,4 +60,16 @@ void boisson::setIngredient(const vector<string> &value)
     ERROR_NO_ATTRIB(ingredient, boisson);
 }
 
+void boisson::printAttrib()
+{
+    cout << "Print " << nom << endl << "    Taille:" << endl;
+    for(vector<int>::iterator it = taille.begin(); it != taille.end(); ++it){
+        cout << "                    " << *it << endl;
+    }
+    cout << "    avis " << avis << endl
+         << "    alcool " << alcool_degre << endl
+         << "    prix " << prix << endl
+         << "    description " << description <<endl;
+
+}
 

@@ -4,14 +4,14 @@
 <menu>
   <entree>
     <nom>salade</nom>
-    <ingredient>légumes,vinaigre,sel</ingredient>
-    <description></description>
+    <ingredient>legumes,vinaigre,sel</ingredient>
+    <description>Best salade ever!!!</description>
     <prix>8</prix>
     <calorie>130</calorie>
     <etoile>4</etoile>
   </entree>
-
-
+  
+  
   <plat>
     <nom>Boeuf bourguignon</nom>
     <ingredient>Boeuf,vin,tomates</ingredient>
@@ -20,7 +20,7 @@
     <calorie>250</calorie>
     <etoile>5</etoile>
   </plat>
-
+  
   <plat>
     <nom>Confit de canard</nom>
     <ingredient>canard</ingredient>
@@ -29,42 +29,50 @@
     <calorie>250</calorie>
     <etoile>5</etoile>
   </plat>
-
- <dessert>
+  
+  <dessert>
     <nom>mouse au chocolat</nom>
     <ingredient>chocolat</ingredient>
     <description>onctueuse et parfumée</description>
     <prix>6</prix>
     <calorie>300</calorie>
     <etoile>4</etoile>
- </dessert>
-
-
-    <vin>
-        <gendre>vin rouge</gendre>
-        <nom>vin rouge</nom>
-        <prix>20</prix>
-        <etoile>5</etoile>
-    </vin>
-    <vin>
-        <gendre>vin blanc</gendre>
-        <nom>vin blanc</nom>
-        <prix>19</prix>
-        <etoile>4</etoile>
-    </vin>
-    <vin>
-        <gendre>biere</gendre>
-        <nom>biere</nom>
-        <prix>10</prix>
-        <etoile>3</etoile>
-    </vin>
-    <vin>
-        <gendre>san alcool</gendre>
-        <nom>jus d'orange</nom>
-        <prix>10</prix>
-        <etoile>3</etoile>
-    </vin>
-
+  </dessert>
+  
+  
+  <boisson>
+    <nom>vin rouge</nom>
+    <prix>20</prix>
+    <description>Villageoise de qualite</description>
+    <etoile>5</etoile>
+    <taille>25,50,100</taille>
+    <alcool>4</alcool>
+  </boisson>
+  <boisson>
+    <nom>vin blanc</nom>
+    <prix>19</prix>
+    <description>Villageoise classique</description>
+    <etoile>4</etoile>
+    <taille>25,50,100</taille>
+    <alcool>3</alcool>
+  </boisson>
+  <boisson>
+    <nom>biere</nom>
+    <prix>10</prix>
+    <description>Delirium ou leffe</description>
+    <etoile>4</etoile>
+    <taille>25, 50</taille>
+    <alcool>3</alcool>
+  </boisson>
+  <boisson>
+    <nom>jus d'orange</nom>
+    <prix>10</prix>
+    <description>En canette</description>
+    <etoile>3</etoile>
+    <taille>33</taille>
+    <alcool>0</alcool>
+  </boisson>
+  
   <plat_du_jour>
     <prix>20</prix>
     <entree_>Garbure</entree_>
@@ -72,5 +80,5 @@
     <dessert_>glace à la vanille</dessert_>
     <vin_>vin rouge</vin_>
   </plat_du_jour>
-
+  
 </menu>

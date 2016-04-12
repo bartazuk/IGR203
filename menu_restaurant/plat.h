@@ -43,6 +43,10 @@ public:
     QPixmap * getImage() const;
     void setImage(const QString value);
 
+    string getDescription() const;
+    void setDescription(const string &value);
+
+    void printAttrib();
 protected:
     string nom;
     vector<string> ingredient;
@@ -50,6 +54,7 @@ protected:
     int calorie;
     int prix;
     QPixmap * image;
+    string description;
 };
 
 #endif // PLAT_H

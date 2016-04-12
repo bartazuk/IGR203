@@ -2,6 +2,7 @@
 #define MENU_H
 
 #include "plat.h"
+#include "boisson.h"
 #include <vector>
 #include <map>
 #include <string>
@@ -36,9 +37,10 @@ private:
     map<string,plat *> entrees;
     map<string,plat *> plats;
     map<string,plat *> desserts;
-    map<string,plat *> vins;
+    map<string,plat *> boissons;
     map<string,plat *> platDuJour;
     int prixPlatDuJour;
+    void createBoisson(QXmlStreamReader &rxml, boisson *p, string type);
 };
 
 #endif // MENU_H

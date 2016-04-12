@@ -1,9 +1,6 @@
 #include "plat.h"
 
-plat::plat()
-{
-
-}
+plat::plat(){}
 
 plat::plat(string _nom, vector<string> _ingredient, int _avis, int _calorie, int _prix, const QString _imagePath){
     setNom(_nom);
@@ -55,7 +52,7 @@ int plat::getCalorie() const
 
 void plat::setCalorie(int _calorie)
 {
-    if (calorie > 0)
+    if (_calorie > 0)
         calorie = _calorie;
     else
         ERROR_BAD_VALUE(calorie, _calorie);
@@ -84,5 +81,29 @@ void plat::setImage(const QString path)
     else
         ERROR_BAD_VALUE(image, path.toStdString());
 }
+
+string plat::getDescription() const
+{
+    return description;
+}
+
+void plat::setDescription(const string &value)
+{
+    description = value;
+}
+
+void plat::printAttrib()
+{
+    cout << "Print " << nom << endl << "    Ingredients:" << endl;
+    for(vector<string>::iterator it = ingredient.begin(); it != ingredient.end(); ++it){
+        cout << "                    " << *it << endl;
+    }
+    cout << "    avis " << avis << endl
+         << "    calorie " << calorie << endl
+         << "    prix " << prix << endl
+         << "    description " << description <<endl;
+
+}
+
 
 
