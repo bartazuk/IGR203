@@ -23,6 +23,7 @@ void Menu::createPlat(QXmlStreamReader& rxml, plat * p, string type){
             vector<string> ingres;
             stringstream ss(rxml.readElementText().toStdString());
             string tok;
+            while(std::getline(ss,tok,',')) ingres.push_back(tok);
             p->setIngredient(ingres);
         }
         else if(rxml.name()=="description"){
