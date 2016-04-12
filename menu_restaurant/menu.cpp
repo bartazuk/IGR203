@@ -27,7 +27,7 @@ void Menu::createPlat(QXmlStreamReader& rxml, plat * p, string type){
             p->setIngredient(ingres);
         }
         else if(rxml.name()=="description"){
-
+            p->setDescription(rxml.readElementText().toStdString());
         }
         else if(rxml.name()=="prix"){
             p->setPrix(rxml.readElementText().toInt());
