@@ -23,11 +23,14 @@ void Menu::createPlat(QXmlStreamReader& rxml, plat * p, string type){
             vector<string> ingres;
             stringstream ss(rxml.readElementText().toStdString());
             string tok;
-            while(std::getline(ss,tok,'|')) ingres.push_back(tok);
+            while(std::getline(ss,tok,',')) ingres.push_back(tok);
             p->setIngredient(ingres);
         }
         else if(rxml.name()=="description"){
 
+        }
+        else if(rxml.name()=="prix"){
+            p->setPrix(rxml.readElementText().toInt());
         }
         else if(rxml.name()=="calorie"){
             p->setCalorie(rxml.readElementText().toInt());
@@ -36,6 +39,7 @@ void Menu::createPlat(QXmlStreamReader& rxml, plat * p, string type){
             p->setAvis(rxml.readElementText().toInt());
         }
     }
+    p->printAttrib();
 }
 
 void Menu::createPlatDuJour(QXmlStreamReader& rxml){
@@ -52,9 +56,42 @@ void Menu::createPlatDuJour(QXmlStreamReader& rxml){
             else if(rxml.name()=="dessert_")
                 platDuJour["dessert"]=desserts[rxml.readElementText().toStdString()];
             else if(rxml.name()=="vin_")
-                platDuJour["vin"]=vins[rxml.readElementText().toStdString()];
+                platDuJour["vin"]=boissons[rxml.readElementText().toStdString()];
         }
     }
+}
+
+void Menu::createBoisson(QXmlStreamReader& rxml, boisson * p, string type){
+    while(!rxml.atEnd()){
+        rxml.readNext();
+        if(rxml.isEndElement() && rxml.name()==QString::fromStdString(type)) break;
+        if(rxml.isEndDocument()) continue;
+        if(rxml.name()=="nom"){
+            p->setNom(rxml.readElementText().toStdString());
+        }
+        else if(rxml.name()=="description"){
+            p->setDescription(rxml.readElementText().toStdString());
+        }
+        else if(rxml.name()=="alcool"){
+            p->setAlcool_degre(rxml.readElementText().toInt());
+        }
+        else if(rxml.name()=="prix"){
+            p->setPrix(rxml.readElementText().toInt());
+        }
+        else if(rxml.name()=="taille"){
+            //split the taille into a vector
+            vector<int> tailles;
+            stringstream ss(rxml.readElementText().toStdString());
+            string tok;
+            while(std::getline(ss,tok,',')) tailles.push_back(stoi(tok));
+            p->setTaille(tailles);
+        }
+        else if(rxml.name()=="etoile"){
+            p->setAvis(rxml.readElementText().toInt());
+        }
+    }
+    p->printAttrib();
+
 }
 
 Menu::Menu()
@@ -80,14 +117,18 @@ Menu::Menu()
             else
             {
                 string type=rxml.name().toString().toStdString();
-                plat * p(new plat());
-                createPlat(rxml,p,type);
-                std::cout << type << " "<< p->getNom() << std::endl;
-
-                if(type=="entree")entrees[p->getNom()]=p;
-                else if(type=="plat")plats[p->getNom()]=p;
-                else if(type=="dessert")desserts[p->getNom()]=p;
-                else if(type=="vin")vins[p->getNom()]=p;
+                if(type == "entree" || type == "plat" || type == "dessert"){
+                    plat * p(new plat());
+                    createPlat(rxml,p,type);
+                    if(type=="entree")entrees[p->getNom()]=p;
+                    else if(type=="plat")plats[p->getNom()]=p;
+                    else if(type=="dessert")desserts[p->getNom()]=p;
+                }
+                else if(type == "boisson"){
+                    boisson * b(new boisson());
+                    createBoisson(rxml, b, type);
+                    boissons[b->getNom()]=b;
+                }
             }
         }
 
