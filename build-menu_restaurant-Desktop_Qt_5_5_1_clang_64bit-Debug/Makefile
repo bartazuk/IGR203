@@ -53,16 +53,32 @@ SOURCES       = ../menu_restaurant/main.cpp \
 		../menu_restaurant/plat.cpp \
 		../menu_restaurant/menu.cpp \
 		../menu_restaurant/food_list.cpp \
+<<<<<<< HEAD
 		../menu_restaurant/boisson.cpp qrc_xmlsources.cpp \
 		moc_mainwindow.cpp
+=======
+		../menu_restaurant/boisson.cpp \
+		../menu_restaurant/panier.cpp \
+		../menu_restaurant/platintro.cpp qrc_xmlsources.cpp \
+		moc_mainwindow.cpp \
+		moc_platintro.cpp
+>>>>>>> origin/master
 OBJECTS       = main.o \
 		mainwindow.o \
 		plat.o \
 		menu.o \
 		food_list.o \
 		boisson.o \
+<<<<<<< HEAD
 		qrc_xmlsources.o \
 		moc_mainwindow.o
+=======
+		panier.o \
+		platintro.o \
+		qrc_xmlsources.o \
+		moc_mainwindow.o \
+		moc_platintro.o
+>>>>>>> origin/master
 DIST          = ../menu_restaurant/menu.xml \
 		/Users/huyuqi/Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		/Users/huyuqi/Qt/5.5/clang_64/mkspecs/qdevice.pri \
@@ -211,12 +227,24 @@ DIST          = ../menu_restaurant/menu.xml \
 		../menu_restaurant/plat.h \
 		../menu_restaurant/menu.h \
 		../menu_restaurant/food_list.h \
+<<<<<<< HEAD
 		../menu_restaurant/boisson.h ../menu_restaurant/main.cpp \
+=======
+		../menu_restaurant/boisson.h \
+		../menu_restaurant/panier.h \
+		../menu_restaurant/platintro.h ../menu_restaurant/main.cpp \
+>>>>>>> origin/master
 		../menu_restaurant/mainwindow.cpp \
 		../menu_restaurant/plat.cpp \
 		../menu_restaurant/menu.cpp \
 		../menu_restaurant/food_list.cpp \
+<<<<<<< HEAD
 		../menu_restaurant/boisson.cpp
+=======
+		../menu_restaurant/boisson.cpp \
+		../menu_restaurant/panier.cpp \
+		../menu_restaurant/platintro.cpp
+>>>>>>> origin/master
 QMAKE_TARGET  = menu_restaurant
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = menu_restaurant.app/Contents/MacOS/menu_restaurant
@@ -587,8 +615,13 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../menu_restaurant/xmlsources.qrc $(DISTDIR)/
+<<<<<<< HEAD
 	$(COPY_FILE) --parents ../menu_restaurant/mainwindow.h ../menu_restaurant/plat.h ../menu_restaurant/menu.h ../menu_restaurant/food_list.h ../menu_restaurant/boisson.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../menu_restaurant/main.cpp ../menu_restaurant/mainwindow.cpp ../menu_restaurant/plat.cpp ../menu_restaurant/menu.cpp ../menu_restaurant/food_list.cpp ../menu_restaurant/boisson.cpp $(DISTDIR)/
+=======
+	$(COPY_FILE) --parents ../menu_restaurant/mainwindow.h ../menu_restaurant/plat.h ../menu_restaurant/menu.h ../menu_restaurant/food_list.h ../menu_restaurant/boisson.h ../menu_restaurant/panier.h ../menu_restaurant/platintro.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../menu_restaurant/main.cpp ../menu_restaurant/mainwindow.cpp ../menu_restaurant/plat.cpp ../menu_restaurant/menu.cpp ../menu_restaurant/food_list.cpp ../menu_restaurant/boisson.cpp ../menu_restaurant/panier.cpp ../menu_restaurant/platintro.cpp $(DISTDIR)/
+>>>>>>> origin/master
 	$(COPY_FILE) --parents ../menu_restaurant/mainwindow.ui $(DISTDIR)/
 
 
@@ -620,6 +653,7 @@ qrc_xmlsources.cpp: ../menu_restaurant/xmlsources.qrc \
 		../menu_restaurant/menu.xml
 	/Users/huyuqi/Qt/5.5/clang_64/bin/rcc -name xmlsources ../menu_restaurant/xmlsources.qrc -o qrc_xmlsources.cpp
 
+<<<<<<< HEAD
 compiler_moc_header_make_all: moc_mainwindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp
@@ -628,6 +662,56 @@ moc_mainwindow.cpp: /Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Header
 		../menu_restaurant/mainwindow.h
 	/Users/huyuqi/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/huyuqi/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/huyuqi/Desktop/telecom/github/IGR203/menu_restaurant -I/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -F/Users/huyuqi/Qt/5.5/clang_64/lib ../menu_restaurant/mainwindow.h -o moc_mainwindow.cpp
 
+=======
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_platintro.cpp
+compiler_moc_header_clean:
+	-$(DEL_FILE) moc_mainwindow.cpp moc_platintro.cpp
+moc_mainwindow.cpp: /Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		../menu_restaurant/plat.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../menu_restaurant/platintro.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QPainter \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		../menu_restaurant/mainwindow.h
+	/Users/huyuqi/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/huyuqi/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/huyuqi/Desktop/telecom/github/IGR203/menu_restaurant -I/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -F/Users/huyuqi/Qt/5.5/clang_64/lib ../menu_restaurant/mainwindow.h -o moc_mainwindow.cpp
+
+moc_platintro.cpp: ../menu_restaurant/plat.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QPainter \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+		../menu_restaurant/platintro.h
+	/Users/huyuqi/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/huyuqi/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/huyuqi/Desktop/telecom/github/IGR203/menu_restaurant -I/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -F/Users/huyuqi/Qt/5.5/clang_64/lib ../menu_restaurant/platintro.h -o moc_platintro.cpp
+
+>>>>>>> origin/master
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
 compiler_uic_make_all: ui_mainwindow.h
@@ -651,11 +735,31 @@ compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean
 main.o: ../menu_restaurant/main.cpp ../menu_restaurant/mainwindow.h \
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+<<<<<<< HEAD
+=======
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QVBoxLayout \
+>>>>>>> origin/master
 		../menu_restaurant/plat.h \
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QPixmap \
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QString \
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qstring.h \
+<<<<<<< HEAD
+=======
+		../menu_restaurant/platintro.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QPainter \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+>>>>>>> origin/master
 		../menu_restaurant/boisson.h \
 		../menu_restaurant/menu.h \
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QXmlStreamReader \
@@ -667,6 +771,28 @@ main.o: ../menu_restaurant/main.cpp ../menu_restaurant/mainwindow.h \
 mainwindow.o: ../menu_restaurant/mainwindow.cpp ../menu_restaurant/mainwindow.h \
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
+<<<<<<< HEAD
+=======
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		../menu_restaurant/plat.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../menu_restaurant/platintro.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QPainter \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qpainter.h \
+>>>>>>> origin/master
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../menu_restaurant/mainwindow.cpp
 
@@ -686,6 +812,11 @@ menu.o: ../menu_restaurant/menu.cpp ../menu_restaurant/menu.h \
 		../menu_restaurant/boisson.h \
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QXmlStreamReader \
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qxmlstream.h \
+<<<<<<< HEAD
+=======
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+>>>>>>> origin/master
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QFile \
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qfile.h \
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QDebug \
@@ -708,12 +839,50 @@ boisson.o: ../menu_restaurant/boisson.cpp ../menu_restaurant/boisson.h \
 		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qstring.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o boisson.o ../menu_restaurant/boisson.cpp
 
+<<<<<<< HEAD
+=======
+panier.o: ../menu_restaurant/panier.cpp ../menu_restaurant/panier.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../menu_restaurant/plat.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qpixmap.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o panier.o ../menu_restaurant/panier.cpp
+
+platintro.o: ../menu_restaurant/platintro.cpp ../menu_restaurant/platintro.h \
+		../menu_restaurant/plat.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QPixmap \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qpixmap.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/QString \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QHBoxLayout \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qboxlayout.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QVBoxLayout \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QLabel \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qlabel.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QImage \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qimage.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QPushButton \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qpushbutton.h \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/QPainter \
+		/Users/huyuqi/Qt/5.5/clang_64/lib/QtGui.framework/Headers/qpainter.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o platintro.o ../menu_restaurant/platintro.cpp
+
+>>>>>>> origin/master
 qrc_xmlsources.o: qrc_xmlsources.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_xmlsources.o qrc_xmlsources.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
+<<<<<<< HEAD
+=======
+moc_platintro.o: moc_platintro.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_platintro.o moc_platintro.cpp
+
+>>>>>>> origin/master
 ####### Install
 
 install:  FORCE

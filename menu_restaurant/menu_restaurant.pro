@@ -17,13 +17,17 @@ SOURCES += main.cpp\
     plat.cpp \
     menu.cpp \
     food_list.cpp \
-    boisson.cpp
+    boisson.cpp \
+    panier.cpp \
+    platintro.cpp
 
 HEADERS  += mainwindow.h \
     plat.h \
     menu.h \
     food_list.h \
-    boisson.h
+    boisson.h \
+    panier.h \
+    platintro.h
 
 FORMS    += mainwindow.ui
 

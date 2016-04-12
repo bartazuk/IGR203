@@ -9,6 +9,7 @@
 #include <memory>
 #include <iostream>
 #include <QXmlStreamReader>
+#include <QWidget>
 using std::map;
 using std::vector;
 
