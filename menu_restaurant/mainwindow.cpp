@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    preference = new Like();// Ruimin-initialize like window
+    ne_mange_pas = new Dislike();//Ruimin-initialize dislike window
     SetUpLayout();//Yuqi-set layout de chaque list a droit
 
 }
@@ -15,6 +17,75 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::on_like_platdujour_clicked()
+{
+
+    preference->show();
+}
+
+void MainWindow::on_dislike_platdujour_clicked()
+{
+
+   ne_mange_pas ->show();
+}
+
+
+
+void MainWindow::on_like_entree_clicked()
+{
+
+    preference->show();
+}
+
+
+void MainWindow::on_dislike_entree_clicked()
+{
+
+    ne_mange_pas ->show();
+
+}
+
+
+void MainWindow::on_like_plat_clicked()
+{
+
+    preference->show();
+}
+
+
+void MainWindow::on_dislike_plat_clicked()
+{
+
+    ne_mange_pas ->show();
+}
+
+
+void MainWindow::on_like_dessert_clicked()
+{
+
+    preference->show();
+}
+
+
+void MainWindow::on_dislike_dessert_clicked()
+{
+
+    ne_mange_pas ->show();
+}
+
+void MainWindow::on_like_boisson_clicked()
+{
+
+    preference->show();
+}
+
+
+
+void MainWindow::on_dislike_boisson_clicked()
+{
+
+    ne_mange_pas ->show();
+}
 
 /*
  * Layout settings du liste a droit
@@ -101,4 +172,3 @@ void MainWindow::SetUpLayout()
     showPlatLayout->addWidget(plattest4);
 
 }
-

@@ -9,7 +9,7 @@
 
 //two functions to assist the xml parsing
 //createPlat and createPlatDuJour
-
+//using std::stoi;
 void Menu::createPlat(QXmlStreamReader& rxml, plat * p, string type){
     while(!rxml.atEnd()){
         rxml.readNext();
@@ -83,7 +83,7 @@ void Menu::createBoisson(QXmlStreamReader& rxml, boisson * p, string type){
             vector<int> tailles;
             stringstream ss(rxml.readElementText().toStdString());
             string tok;
-            while(std::getline(ss,tok,',')) tailles.push_back(stoi(tok));
+            while(std::getline(ss,tok,',')) tailles.push_back(atoi(tok.c_str()));
             p->setTaille(tailles);
         }
         else if(rxml.name()=="etoile"){
