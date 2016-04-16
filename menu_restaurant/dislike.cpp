@@ -19,13 +19,13 @@ Dislike::Dislike(QWidget *parent) : QMainWindow(parent)
 
 
  QLabel * label1 = new QLabel("Ingrédients:");
- QCheckBox *ing1 = new QCheckBox("Boeuf", this);
- QCheckBox *ing2 = new QCheckBox("Poulet", this);
- QCheckBox *ing3 = new QCheckBox("Agneau", this);
- QCheckBox *ing4 = new QCheckBox("Poisson", this);
- QCheckBox *ing5 = new QCheckBox("Porc", this);
- QCheckBox *ing6 = new QCheckBox("Céleri", this);
- QCheckBox *ing7 = new QCheckBox("Poivre", this);
+ ing1 = new QCheckBox("Boeuf", this);
+ ing2 = new QCheckBox("Canard", this);
+ ing3 = new QCheckBox("Viande", this);
+ ing4 = new QCheckBox("Huitre", this);
+ ing5 = new QCheckBox("Thon", this);
+ ing6 = new QCheckBox("Céleri", this);
+ ing7 = new QCheckBox("Poivre", this);
  QWidget *empty1 = new QWidget;
  empty1->setFixedWidth(50);
 
@@ -62,7 +62,7 @@ Dislike::Dislike(QWidget *parent) : QMainWindow(parent)
  empty2->setFixedWidth(300);
  quit->setFixedHeight(20);
  quit->setFixedWidth(100);
- connect(quit, SIGNAL( clicked() ), this, SLOT( closeWindow() ));
+ connect(quit, SIGNAL( clicked() ), this, SLOT(confirmSLOT()));
  Layout3->addWidget(empty2);
  Layout3->addWidget(quit);
 
@@ -81,9 +81,39 @@ mainwidget->setFixedSize(450, 200);
 setCentralWidget(mainwidget);
 }
 
-void Dislike::closeWindow()
+void Dislike::confirmSLOT()
 {
-    this->close();
+    if(ing1->isChecked())
+    {
+     ingrediantName = "boeuf";
+     emit confirm();
+    }
+    if(ing2->isChecked())
+    {
+     ingrediantName = "canard";
+      emit confirm();
+    }
+    if(ing3->isChecked())
+    {
+     ingrediantName = "viande";
+      emit confirm();
+    }
+    if(ing4->isChecked())
+    {
+     ingrediantName = "huitre";
+     cout<<ingrediantName<<endl;
+      emit confirm();
+    }
+
+    if(ing5->isChecked())
+    {
+     ingrediantName = "thon";
+     emit confirm();
+    }
+
+     cout<<"label    "<<label<<endl;
+     this->close();
+
 }
 
 

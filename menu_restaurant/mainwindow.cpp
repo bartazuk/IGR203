@@ -55,6 +55,11 @@ MainWindow::MainWindow(QWidget *parent) :
         connect(intro,SIGNAL(afficherDetails(plat*)),this, SLOT(afficheDetail(plat*)));
     }
     std::cout << "hi" << std::endl;
+
+ //update preference
+   connect(preference, SIGNAL(confirm()),this,SLOT(like_label()));
+    connect(ne_mange_pas, SIGNAL(confirm()),this,SLOT(dislike_label()));
+
 }
 
 
@@ -63,75 +68,23 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_like_platdujour_clicked()
-{
-
-    preference->show();
-}
-
-void MainWindow::on_dislike_platdujour_clicked()
-{
-
-   ne_mange_pas ->show();
-}
 
 
 
-void MainWindow::on_like_entree_clicked()
-{
 
-    preference->show();
-}
+//void MainWindow::on_like_boisson_clicked()
+//{
 
-
-void MainWindow::on_dislike_entree_clicked()
-{
-
-    ne_mange_pas ->show();
-
-}
-
-
-void MainWindow::on_like_plat_clicked()
-{
-
-    preference->show();
-}
-
-
-void MainWindow::on_dislike_plat_clicked()
-{
-
-    ne_mange_pas ->show();
-}
-
-
-void MainWindow::on_like_dessert_clicked()
-{
-
-    preference->show();
-}
-
-
-void MainWindow::on_dislike_dessert_clicked()
-{
-
-    ne_mange_pas ->show();
-}
-
-void MainWindow::on_like_boisson_clicked()
-{
-
-    preference->show();
-}
+//    preference->show();
+//}
 
 
 
-void MainWindow::on_dislike_boisson_clicked()
-{
+//void MainWindow::on_dislike_boisson_clicked()
+//{
 
-    ne_mange_pas ->show();
-}
+//    ne_mange_pas ->show();
+//}
 
 /*
  * Layout settings du liste a droit
@@ -333,3 +286,185 @@ void MainWindow::afficheDetail(plat *selectedPlat){
 
     }
 }
+
+
+void MainWindow::like_label()
+{
+    switch (preference->label) {
+    case 0 :
+        updateLike(&platdujourLayout,platdujourList);
+        break;
+    case 1:
+         updateLike(&entreeLayout,entreeList);
+         break;
+    case 2:
+        updateLike(&platLayout,platList);
+        break;
+    case 3:
+        updateLike(&dessertLayout,dessertList);
+        break;
+    case 4:
+        updateLike(&boissonLayout,boissonList);
+        break;
+    default:
+        break;
+    }
+}
+
+void MainWindow::dislike_label()
+{
+    switch (ne_mange_pas->label) {
+    case 0 :
+        updatedisLike(&platdujourLayout,platdujourList);
+        break;
+    case 1:
+         updatedisLike(&entreeLayout,entreeList);
+         break;
+    case 2:
+        updatedisLike(&platLayout,platList);
+        break;
+    case 3:
+        updatedisLike(&dessertLayout,dessertList);
+        break;
+    case 4:
+        updatedisLike(&boissonLayout,boissonList);
+        break;
+    default:
+        break;
+    }
+}
+
+void MainWindow::on_boisson_addlike_clicked()
+{
+     preference->label=4;
+     preference->show();
+}
+
+
+
+void MainWindow::on_boisson_adddislike_clicked()
+{
+     ne_mange_pas->label=4;
+     ne_mange_pas ->show();
+}
+
+
+void MainWindow::on_dessert_addlike_clicked()
+{
+     preference->label=3;
+     preference->show();
+}
+
+
+void MainWindow::on_dessert_adddislike_clicked()
+{
+     ne_mange_pas->label=3;
+    ne_mange_pas ->show();
+}
+
+
+void MainWindow::on_plat_addlike_clicked()
+{
+     preference->label=2;
+//     preference->list = this->getplatList();
+//     preference->platLayout =this->getentreeLayout();
+//     platLayout.removeWidget(platList[0]);
+//     platLayout.addWidget(platList[0]);
+     preference->show();
+}
+
+
+void MainWindow::on_plat_adddislike_clicked()
+{
+     ne_mange_pas->label=2;
+    ne_mange_pas ->show();
+}
+
+
+
+void MainWindow::on_entree_addlike_clicked()
+{
+     preference->label=1;
+     preference->show();
+}
+
+
+void MainWindow::on_entree_adddislike_clicked()
+{
+     ne_mange_pas->label=1;
+     ne_mange_pas ->show();
+}
+
+void MainWindow::on_platdujour_addlike_clicked()
+{
+    preference->label=0;
+    preference->show();
+}
+
+
+void MainWindow::on_platdujour_adddislike_clicked()
+{
+     ne_mange_pas->label=0;
+    ne_mange_pas ->show();
+}
+
+
+void MainWindow::updateLike( QVBoxLayout* layout_,vector<platIntro*> &list_)
+{
+        cout<<"label    "<<preference->label<<endl;
+        int len =0;
+        vector<platIntro*> deletedlist;
+        vector<platIntro*>::iterator iter;
+        for (iter=list_.begin();iter!=list_.end();iter++)
+            {
+              len =  (**iter)._plat->getIngredient().size();
+              for (int i=0;i<len;i++)
+              {
+                  if ((**iter)._plat->getIngredient()[i]==preference->ingrediantName)
+                  {
+                  cout<<(**iter)._plat->getIngredient()[i]<<endl;
+                  deletedlist.push_back((*iter));
+                  layout_->removeWidget(*iter);
+                  break;
+                  }
+              }
+            }
+
+        for (iter=deletedlist.begin();iter!=deletedlist.end();iter++)
+        {
+             cout<<(**iter)._plat->getNom()<<endl;
+             layout_->insertWidget(0,(*iter));
+
+        }
+
+
+}
+ void MainWindow:: updatedisLike(QVBoxLayout* layout_,vector<platIntro*> &list_)
+ {
+
+     cout<<"label    "<<preference->label<<endl;
+     cout<<ne_mange_pas->ingrediantName<<endl;
+     int len =0;
+     vector<platIntro*> deletedlist;
+     vector<platIntro*>::iterator iter;
+     for (iter=list_.begin();iter!=list_.end();iter++)
+         {
+           len =  (**iter)._plat->getIngredient().size();
+           for (int i=0;i<len;i++)
+           {
+               if ((**iter)._plat->getIngredient()[i]==ne_mange_pas->ingrediantName)
+               {
+               cout<<(**iter)._plat->getIngredient()[i]<<endl;
+               (**iter).hide();
+               break;
+               }
+           }
+         }
+
+
+
+ }
+
+
+
+

@@ -36,6 +36,8 @@ public:
     QLabel *showPrice;
     QLabel *showAvis;
 
+     plat* _plat;
+
     void SetUpLayout(plat *plat);
     virtual void paintEvent(QPaintEvent *);
 
@@ -48,7 +50,7 @@ signals:
     void afficherDetails(plat*);//signal pour ajouter les templates
 
 private:
-    plat* _plat;
+
 };
 
 #endif // PLATINTRO_H

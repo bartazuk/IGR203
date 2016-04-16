@@ -96,7 +96,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_1">
      <attribute name="title">
@@ -119,8 +119,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>367</width>
-         <height>367</height>
+         <width>369</width>
+         <height>369</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_6">
@@ -282,8 +282,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>337</width>
-         <height>367</height>
+         <width>339</width>
+         <height>369</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_9">
@@ -312,7 +312,7 @@
          <string>Ne mange pas:</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="platdujour_addlike">
         <property name="geometry">
          <rect>
           <x>110</x>
@@ -325,7 +325,7 @@
          <string>+Ajouter</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="platdujour_adddislike">
         <property name="geometry">
          <rect>
           <x>110</x>
@@ -414,8 +414,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>317</width>
-           <height>247</height>
+           <width>319</width>
+           <height>249</height>
           </rect>
          </property>
          <property name="layoutDirection">
@@ -447,8 +447,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>337</width>
-         <height>367</height>
+         <width>339</width>
+         <height>369</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_27">
@@ -477,7 +477,7 @@
          <string>Ne mange pas:</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_8">
+       <widget class="QPushButton" name="entree_addlike">
         <property name="geometry">
          <rect>
           <x>110</x>
@@ -490,7 +490,7 @@
          <string>+Ajouter</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_9">
+       <widget class="QPushButton" name="entree_adddislike">
         <property name="geometry">
          <rect>
           <x>110</x>
@@ -579,8 +579,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>317</width>
-           <height>247</height>
+           <width>319</width>
+           <height>249</height>
           </rect>
          </property>
         </widget>
@@ -604,8 +604,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>367</width>
-         <height>367</height>
+         <width>369</width>
+         <height>369</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_13">
@@ -772,8 +772,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>367</width>
-         <height>367</height>
+         <width>369</width>
+         <height>369</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_18">
@@ -935,8 +935,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>337</width>
-         <height>367</height>
+         <width>339</width>
+         <height>369</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_23">
@@ -965,7 +965,7 @@
          <string>Ne mange pas:</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="QPushButton" name="plat_addlike">
         <property name="geometry">
          <rect>
           <x>110</x>
@@ -978,7 +978,7 @@
          <string>+Ajouter</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="QPushButton" name="plat_adddislike">
         <property name="geometry">
          <rect>
           <x>110</x>
@@ -1067,8 +1067,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>317</width>
-           <height>247</height>
+           <width>319</width>
+           <height>249</height>
           </rect>
          </property>
         </widget>
@@ -1097,8 +1097,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>367</width>
-         <height>367</height>
+         <width>369</width>
+         <height>369</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_31">
@@ -1260,8 +1260,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>337</width>
-         <height>367</height>
+         <width>339</width>
+         <height>369</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_36">
@@ -1290,7 +1290,7 @@
          <string>Ne mange pas:</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_11">
+       <widget class="QPushButton" name="dessert_addlike">
         <property name="geometry">
          <rect>
           <x>110</x>
@@ -1303,7 +1303,7 @@
          <string>+Ajouter</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_12">
+       <widget class="QPushButton" name="dessert_adddislike">
         <property name="geometry">
          <rect>
           <x>110</x>
@@ -1392,8 +1392,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>317</width>
-           <height>247</height>
+           <width>319</width>
+           <height>249</height>
           </rect>
          </property>
         </widget>
@@ -1422,8 +1422,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>367</width>
-         <height>367</height>
+         <width>369</width>
+         <height>369</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_40">
@@ -1585,8 +1585,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>337</width>
-         <height>367</height>
+         <width>339</width>
+         <height>369</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_45">
@@ -1615,7 +1615,7 @@
          <string>Ne mange pas:</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_14">
+       <widget class="QPushButton" name="boisson_addlike">
         <property name="geometry">
          <rect>
           <x>110</x>
@@ -1628,7 +1628,7 @@
          <string>+Ajouter</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="pushButton_15">
+       <widget class="QPushButton" name="boisson_adddislike">
         <property name="geometry">
          <rect>
           <x>110</x>
@@ -1717,8 +1717,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>317</width>
-           <height>247</height>
+           <width>319</width>
+           <height>249</height>
           </rect>
          </property>
         </widget>

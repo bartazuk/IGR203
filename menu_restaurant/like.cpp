@@ -1,4 +1,7 @@
 #include "like.h"
+#include <numeric>
+
+
 
 Like::Like(QWidget *parent) : QMainWindow(parent)
 {
@@ -16,11 +19,11 @@ QVBoxLayout * mainLayout = new QVBoxLayout;
  //add ingredient preference
  QHBoxLayout * Layout1 = new QHBoxLayout;
  QLabel * label1 = new QLabel("Ingrédients :");
- QCheckBox *ing1 = new QCheckBox("Boeuf", this);
- QCheckBox *ing2 = new QCheckBox("Poulet", this);
- QCheckBox *ing3 = new QCheckBox("Agneau", this);
- QCheckBox *ing4 = new QCheckBox("Poisson", this);
- QCheckBox *ing5 = new QCheckBox("Porc", this);
+ ing1 = new QCheckBox("Boeuf", this);
+ ing2 = new QCheckBox("Canard", this);
+ ing3 = new QCheckBox("Viande", this);
+ ing4 = new QCheckBox("Huitre", this);
+ ing5 = new QCheckBox("Thon", this);
 
  Layout1 ->addWidget(label1);
  Layout1 ->addWidget(ing1);
@@ -67,7 +70,7 @@ QVBoxLayout * mainLayout = new QVBoxLayout;
  quit->setFixedWidth(100);
  Layout4->addWidget(empty);
  Layout4->addWidget(quit);
- connect(quit, SIGNAL( clicked() ), this, SLOT( closeWindow() ));
+ connect(quit, SIGNAL( clicked() ), this, SLOT( confirmSLOT()) );
 
 
  //add layouts to main layout
@@ -83,7 +86,36 @@ QVBoxLayout * mainLayout = new QVBoxLayout;
  setCentralWidget(mainwidget);
 }
 
-void Like::closeWindow()
+void Like::confirmSLOT()
 {
+
+   if(ing1->isChecked())
+   {
+    ingrediantName = "boeuf";
+    emit confirm();
+   }
+   if(ing2->isChecked())
+   {
+    ingrediantName = "canard";
+     emit confirm();
+   }
+   if(ing3->isChecked())
+   {
+    ingrediantName = "viande";
+     emit confirm();
+   }
+   if(ing4->isChecked())
+   {
+    ingrediantName = "huitre";
+     emit confirm();
+   }
+
+   if(ing5->isChecked())
+   {
+    ingrediantName = "thon";
+    emit confirm();
+   }
+
+    cout<<"label    "<<label<<endl;
     this->close();
 }

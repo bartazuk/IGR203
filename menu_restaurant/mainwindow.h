@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <vector>
 #include "plat.h"
 #include "platintro.h"
 #include "like.h"
@@ -21,34 +22,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void SetUpLayout();
-
-
-private slots:
-        void on_like_platdujour_clicked();
-
-        void on_dislike_platdujour_clicked();
-
-        void on_like_entree_clicked();
-
-        void on_dislike_entree_clicked();
-
-        void on_like_plat_clicked();
-
-        void on_dislike_plat_clicked();
-
-        void on_like_dessert_clicked();
-
-        void on_dislike_dessert_clicked();
-
-        void on_like_boisson_clicked();
-
-        void on_dislike_boisson_clicked();
-
-        void afficheDetail(plat*);
-private:
-    Ui::MainWindow *ui;
-    Like *preference;
-    Dislike *ne_mange_pas;
+    void updateLike(QVBoxLayout* layout_,vector<platIntro*> &list_);
+    void updatedisLike(QVBoxLayout* layout_,vector<platIntro*> &list_);
 
     vector<platIntro*> entreeList;
     vector<platIntro*> platList;
@@ -61,6 +36,42 @@ private:
     QVBoxLayout dessertLayout;
     QVBoxLayout boissonLayout;
     QVBoxLayout platdujourLayout;
+
+
+private slots:
+
+     void afficheDetail(plat*);
+     void on_boisson_addlike_clicked();
+
+     void on_boisson_adddislike_clicked();
+
+     void on_dessert_addlike_clicked();
+
+     void on_dessert_adddislike_clicked();
+
+     void on_plat_addlike_clicked();
+
+     void on_plat_adddislike_clicked();
+
+     void on_entree_addlike_clicked();
+
+     void on_entree_adddislike_clicked();
+
+     void on_platdujour_addlike_clicked();
+
+     void on_platdujour_adddislike_clicked();
+
+     void like_label();
+     void dislike_label();
+
+
+
+private:
+    Ui::MainWindow *ui;
+    Like *preference;
+    Dislike *ne_mange_pas;
+
+
 
     void updateDisplayList();
 };
