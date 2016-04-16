@@ -227,22 +227,109 @@ void MainWindow::on_dislike_boisson_clicked()
 
 void MainWindow::afficheDetail(plat *selectedPlat){
 
-    std::cout << selectedPlat->getNom() << std::endl;
+//    std::cout << selectedPlat->getNom() << std::endl;
+//    ui->pj_name->setText(QString::fromStdString(selectedPlat->getNom()));
+
+//    ui->pj_prix->setText(QString::number(selectedPlat->getPrix()));
+
+//    ui->pj_calorie->setText(QString::number(selectedPlat->getCalorie()));
+
+//    ui->pj_note->setText(QString::number(selectedPlat->getAvis()));
+
+//    std::string s;
+//    vector<std::string> v=selectedPlat->getIngredient();
+//    s = std::accumulate(v.begin(), v.end(), s);
+
+//    ui->pj_description->setText(QString::fromStdString(s));
+
+//    QPixmap *image = selectedPlat->getImage();
+//    QPixmap image2 = image->scaled(200,200,Qt::KeepAspectRatio);
+//    ui->pj_picture->setPixmap(image2);*
+
+
+    int index_window=ui->tabWidget->currentIndex();
+    switch(index_window)
+    {
+    case 0:
+    {
     ui->pj_name->setText(QString::fromStdString(selectedPlat->getNom()));
-
     ui->pj_prix->setText(QString::number(selectedPlat->getPrix()));
-
     ui->pj_calorie->setText(QString::number(selectedPlat->getCalorie()));
-
     ui->pj_note->setText(QString::number(selectedPlat->getAvis()));
-
     std::string s;
     vector<std::string> v=selectedPlat->getIngredient();
-    s = std::accumulate(v.begin(), v.end(), s);
-
+    s = accumulate(v.begin(), v.end(), s);
     ui->pj_description->setText(QString::fromStdString(s));
 
     QPixmap *image = selectedPlat->getImage();
     QPixmap image2 = image->scaled(200,200,Qt::KeepAspectRatio);
     ui->pj_picture->setPixmap(image2);
+    }
+    case 1:
+    {
+    ui->e_name->setText(QString::fromStdString(selectedPlat->getNom()));
+    ui->e_prix->setText(QString::number(selectedPlat->getPrix()));
+    ui->e_calorie->setText(QString::number(selectedPlat->getCalorie()));
+    ui->e_note->setText(QString::number(selectedPlat->getAvis()));
+    std::string s;
+    vector<std::string> v=selectedPlat->getIngredient();
+    s = accumulate(v.begin(), v.end(), s);
+    ui->e_description->setText(QString::fromStdString(s));
+
+    QPixmap *image = selectedPlat->getImage();
+    QPixmap image2 = image->scaled(200,200,Qt::KeepAspectRatio);
+    ui->e_picture->setPixmap(image2);
+    cout<<"hello 22222"<<endl;
+
+    }
+    case 2:
+    {
+    if(ui->tab_3->isActiveWindow())
+    ui->p_name->setText(QString::fromStdString(selectedPlat->getNom()));
+    ui->p_prix->setText(QString::number(selectedPlat->getPrix()));
+    ui->p_calorie->setText(QString::number(selectedPlat->getCalorie()));
+    ui->p_note->setText(QString::number(selectedPlat->getAvis()));
+    std::string s;
+    vector<std::string> v=selectedPlat->getIngredient();
+    s = accumulate(v.begin(), v.end(), s);
+    ui->p_description->setText(QString::fromStdString(s));
+
+    QPixmap *image = selectedPlat->getImage();
+    QPixmap image2 = image->scaled(200,200,Qt::KeepAspectRatio);
+    ui->p_picture->setPixmap(image2);
+    }
+    case 3:
+    {
+    // if(ui->tab_4->isActiveWindow())
+    ui->d_name->setText(QString::fromStdString(selectedPlat->getNom()));
+    ui->d_prix->setText(QString::number(selectedPlat->getPrix()));
+    ui->d_calorie->setText(QString::number(selectedPlat->getCalorie()));
+    ui->d_note->setText(QString::number(selectedPlat->getAvis()));
+    std::string s;
+    vector<std::string> v=selectedPlat->getIngredient();
+    s = accumulate(v.begin(), v.end(), s);
+    ui->d_description->setText(QString::fromStdString(s));
+
+    QPixmap *image = selectedPlat->getImage();
+    QPixmap image2 = image->scaled(200,200,Qt::KeepAspectRatio);
+    ui->d_picture->setPixmap(image2);
+    }
+    case 4:
+    {
+    // if(ui->tab_5->isActiveWindow())
+    ui->b_name->setText(QString::fromStdString(selectedPlat->getNom()));
+    ui->b_prix->setText(QString::number(selectedPlat->getPrix()));
+    ui->b_calorie->setText(QString::number(selectedPlat->getCalorie()));
+    ui->b_note->setText(QString::number(selectedPlat->getAvis()));
+    std::string s;
+    vector<std::string> v=selectedPlat->getIngredient();
+    s = accumulate(v.begin(), v.end(), s);
+    ui->b_description->setText(QString::fromStdString(s));
+
+    QPixmap *image = selectedPlat->getImage();
+    QPixmap image2 = image->scaled(200,200,Qt::KeepAspectRatio);
+    ui->b_picture->setPixmap(image2);
+    }
+
+    }
 }
