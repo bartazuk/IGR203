@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "menu.h"
+#include <numeric>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,9 +10,53 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     preference = new Like();// Ruimin-initialize like window
     ne_mange_pas = new Dislike();//Ruimin-initialize dislike window
-    SetUpLayout();//Yuqi-set layout de chaque list a droit
+ std::cout << "hi" << std::endl;
+    ui->scrollAreaWidget_list_entree->setLayout(&entreeLayout);
+    ui->scrollAreaWidget_list_plat->setLayout(&platLayout);
+    ui->scrollAreaWidget_list_boisson->setLayout(&boissonLayout);
+    ui->scrollAreaWidget_list_dessert->setLayout(&dessertLayout);
+    ui->scrollAreaWidget_list_platdujour->setLayout(&platdujourLayout);
 
+        std::cout << "hi" << std::endl;
+    std::cout <<Menu::Instance().entrees.begin()->first << std::endl;
+//    for(map<string,plat*>::iterator it=Menu::Instance().platDuJour.begin(); it!=Menu::Instance().platDuJour.end();it++){
+//        std::cout << it->second->getNom() << std::endl;
+//        platIntro* intro = new platIntro(it->second);
+//        platdujourList.push_back(intro);
+//        platdujourLayout.addWidget(intro);
+//    }
+
+    for(map<string,plat*>::iterator it=Menu::Instance().entrees.begin(); it!=Menu::Instance().entrees.end();it++){
+        if(!it->second) continue;
+        platIntro* intro = new platIntro(it->second);
+        entreeList.push_back(intro);
+        entreeLayout.addWidget(intro);
+        connect(intro,SIGNAL(afficherDetails(plat*)),this, SLOT(afficheDetail(plat*)));
+    }
+    for(map<string,plat*>::iterator it=Menu::Instance().plats.begin(); it!=Menu::Instance().plats.end();it++){
+        if(!it->second) continue;
+        platIntro* intro = new platIntro(it->second);
+        platList.push_back(intro);
+        platLayout.addWidget(intro);
+        connect(intro,SIGNAL(afficherDetails(plat*)),this, SLOT(afficheDetail(plat*)));
+    }
+    for(map<string,plat*>::iterator it=Menu::Instance().desserts.begin(); it!=Menu::Instance().desserts.end();it++){
+        if(!it->second) continue;
+        platIntro* intro = new platIntro(it->second);
+        dessertList.push_back(intro);
+        dessertLayout.addWidget(intro);
+        connect(intro,SIGNAL(afficherDetails(plat*)),this, SLOT(afficheDetail(plat*)));
+    }
+    for(map<string,plat*>::iterator it=Menu::Instance().boissons.begin(); it!=Menu::Instance().boissons.end();it++){
+        if(!it->second) continue;
+        platIntro* intro = new platIntro(it->second);
+        boissonList.push_back(intro);
+        boissonLayout.addWidget(intro);
+        connect(intro,SIGNAL(afficherDetails(plat*)),this, SLOT(afficheDetail(plat*)));
+    }
+    std::cout << "hi" << std::endl;
 }
+
 
 MainWindow::~MainWindow()
 {
@@ -91,84 +137,112 @@ void MainWindow::on_dislike_boisson_clicked()
  * Layout settings du liste a droit
  * Et les tests pour la classe plaiIntro - Yuqi
  */
-void MainWindow::SetUpLayout()
-{
-    QWidget	*showPlatWidget= new QWidget();
-    QVBoxLayout *showPlatLayout = new QVBoxLayout();
+//void MainWindow::SetUpLayout()
+//{
+//    QWidget	*showPlatWidget= new QWidget();
+//    QVBoxLayout *showPlatLayout = new QVBoxLayout();
 
-    QWidget	*showPlatWidget2= new QWidget();
-    QVBoxLayout *showPlatLayout2 = new QVBoxLayout();
+//    QWidget	*showPlatWidget2= new QWidget();
+//    QVBoxLayout *showPlatLayout2 = new QVBoxLayout();
 
-    QWidget	*showPlatWidget4= new QWidget();
-    QVBoxLayout *showPlatLayout4= new QVBoxLayout();
+//    QWidget	*showPlatWidget4= new QWidget();
+//    QVBoxLayout *showPlatLayout4= new QVBoxLayout();
 
-    QWidget	*showPlatWidget3= new QWidget();
-    QVBoxLayout *showPlatLayout3 = new QVBoxLayout();
+//    QWidget	*showPlatWidget3= new QWidget();
+//    QVBoxLayout *showPlatLayout3 = new QVBoxLayout();
 
-    QWidget	*showPlatWidget5= new QWidget();
-    QVBoxLayout *showPlatLayout5 = new QVBoxLayout();
+//    QWidget	*showPlatWidget5= new QWidget();
+//    QVBoxLayout *showPlatLayout5 = new QVBoxLayout();
 
 
-    ui->scrollArea_15->setWidgetResizable(true);
-    ui->scrollArea_15->setWidget(showPlatWidget);
+//    ui->scrollArea_15->setWidgetResizable(true);
+//    ui->scrollArea_15->setWidget(showPlatWidget);
 
-    ui->scrollArea_14->setWidgetResizable(true);
-    ui->scrollArea_14->setWidget(showPlatWidget2);
+//    ui->scrollArea_14->setWidgetResizable(true);
+//    ui->scrollArea_14->setWidget(showPlatWidget2);
 
-    ui->scrollArea_13->setWidgetResizable(true);
-    ui->scrollArea_13->setWidget(showPlatWidget3);
+//    ui->scrollArea_13->setWidgetResizable(true);
+//    ui->scrollArea_13->setWidget(showPlatWidget3);
 
-    ui->scrollArea_12->setWidgetResizable(true);
-    ui->scrollArea_12->setWidget(showPlatWidget4);
+//    ui->scrollArea_12->setWidgetResizable(true);
+//    ui->scrollArea_12->setWidget(showPlatWidget4);
 
-    ui->scrollArea_11->setWidgetResizable(true);
-    ui->scrollArea_11->setWidget(showPlatWidget5);
+//    ui->scrollArea_11->setWidgetResizable(true);
+//    ui->scrollArea_11->setWidget(showPlatWidget5);
 
-    //ui->scrollArea_12->setWidget(showPlatWidget);
-    //ui->scrollArea_13->setWidget(showPlatWidget);
-    //ui->scrollArea_14->setWidget(showPlatWidget);
-    //ui->scrollArea_15->setWidget(showPlatWidget);
+//    //ui->scrollArea_12->setWidget(showPlatWidget);
+//    //ui->scrollArea_13->setWidget(showPlatWidget);
+//    //ui->scrollArea_14->setWidget(showPlatWidget);
+//    //ui->scrollArea_15->setWidget(showPlatWidget);
 
-    showPlatWidget->setLayout(showPlatLayout);
-    showPlatWidget2->setLayout(showPlatLayout2);
-    showPlatWidget3->setLayout(showPlatLayout3);
-    showPlatWidget4->setLayout(showPlatLayout4);
-    showPlatWidget5->setLayout(showPlatLayout5);
+//    showPlatWidget->setLayout(showPlatLayout);
+//    showPlatWidget2->setLayout(showPlatLayout2);
+//    showPlatWidget3->setLayout(showPlatLayout3);
+//    showPlatWidget4->setLayout(showPlatLayout4);
+//    showPlatWidget5->setLayout(showPlatLayout5);
 
-    vector<string> test2;
-    plat *test = new plat("test",test2,1,2,3,"/Users/huyuqi/Downloads/f60d6056d304be859987e91a416e3a40.jpg");
-    plat *test3 = new plat("test",test2,2,3,4,"/Users/huyuqi/Downloads/f60d6056d304be859987e91a416e3a40.jpg");
-    platIntro *plattest = new platIntro();
-    platIntro *plattest5 = new platIntro();
-    platIntro *plattest6 = new platIntro();
-    platIntro *plattest7 = new platIntro();
-    platIntro *plattest8 = new platIntro();
-    platIntro *plattest9 = new platIntro();
-    platIntro *plattest10= new platIntro();
-    plattest->SetUpLayout(test);
-    plattest5->SetUpLayout(test);
-    plattest6->SetUpLayout(test);
-    plattest7->SetUpLayout(test);
-    plattest8->SetUpLayout(test);
-    plattest9->SetUpLayout(test);
-    plattest10->SetUpLayout(test);
-    showPlatLayout->addWidget(plattest);
-    showPlatLayout2->addWidget(plattest5);
-    showPlatLayout2->addWidget(plattest9);
-    showPlatLayout2->addWidget(plattest10);
-    showPlatLayout3->addWidget(plattest6);
-    showPlatLayout4->addWidget(plattest7);
-    showPlatLayout5->addWidget(plattest8);
+//    vector<string> test2;
+//    test2.push_back("hahaha");
+//    test2.push_back("\n_1ingredient");
+//    test2.push_back("\n_2ingredient");
+//    plat *test = new plat("test",test2,1,2,1,":/myImages/image/testpic2.png");
+//    plat *test3 = new plat("test",test2,3,3,3,":/myImages/image/testpic3.png");
+// //   plat *test4 = new plat("test",test2,4,3,4,":/myImages/image/testpic3.png");
+//    plat *test5 = new plat("test5",test2,5,3,5,":/myImages/image/testpic3.png");
+//    plat *test6 = new plat("test6",test2,6,3,6,":/myImages/image/testpic3.png");
+//    plat *test7 = new plat("test7",test2,7,3,7,":/myImages/image/testpic3.png");
+//    plat *test8 = new plat("test8",test2,8,3,8,":/myImages/image/testpic3.png");
+//    plat *test9 = new plat("test9",test2,9,3,9,":/myImages/image/testpic3.png");
+//    plat *test10 = new plat("test10",test2,10,3,10,":/myImages/image/testpic3.png");
 
-    platIntro *plattest2 = new platIntro();
-    plattest2->SetUpLayout(test);
-    showPlatLayout->addWidget(plattest2);
+//    platIntro *plattest = new platIntro(test);
+//    platIntro *plattest5 = new platIntro(test);
+//    platIntro *plattest6 = new platIntro(test);
+//    platIntro *plattest7 = new platIntro(test);
+//    platIntro *plattest8 = new platIntro(test);
+//    platIntro *plattest9 = new platIntro(test);
+//    platIntro *plattest10= new platIntro(test);
 
-    platIntro *plattest3 = new platIntro();
-    plattest3->SetUpLayout(test3);
-    showPlatLayout->addWidget(plattest3);
-    platIntro *plattest4 = new platIntro();
-    plattest4->SetUpLayout(test3);
-    showPlatLayout->addWidget(plattest4);
+//    connect(plattest,SIGNAL(afficherDetails(plat*)),this,SLOT(afficheDetail(plat*)));
 
+//    showPlatLayout->addWidget(plattest);
+//    showPlatLayout2->addWidget(plattest5);
+//    showPlatLayout2->addWidget(plattest9);
+//    showPlatLayout2->addWidget(plattest10);
+//    showPlatLayout3->addWidget(plattest6);
+//    showPlatLayout4->addWidget(plattest7);
+//    showPlatLayout5->addWidget(plattest8);
+
+//    platIntro *plattest2 = new platIntro(test);
+
+//    showPlatLayout->addWidget(plattest2);
+
+//    platIntro *plattest3 = new platIntro(test3);
+//    showPlatLayout->addWidget(plattest3);
+//    platIntro *plattest4 = new platIntro(test3);
+
+//    showPlatLayout->addWidget(plattest4);
+
+//}
+
+void MainWindow::afficheDetail(plat *selectedPlat){
+
+    std::cout << selectedPlat->getNom() << std::endl;
+    ui->pj_name->setText(QString::fromStdString(selectedPlat->getNom()));
+
+    ui->pj_prix->setText(QString::number(selectedPlat->getPrix()));
+
+    ui->pj_calorie->setText(QString::number(selectedPlat->getCalorie()));
+
+    ui->pj_note->setText(QString::number(selectedPlat->getAvis()));
+
+    std::string s;
+    vector<std::string> v=selectedPlat->getIngredient();
+    s = std::accumulate(v.begin(), v.end(), s);
+
+    ui->pj_description->setText(QString::fromStdString(s));
+
+    QPixmap *image = selectedPlat->getImage();
+    QPixmap image2 = image->scaled(200,200,Qt::KeepAspectRatio);
+    ui->pj_picture->setPixmap(image2);
 }

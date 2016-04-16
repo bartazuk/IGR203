@@ -90,19 +90,19 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>30</y>
+      <y>20</y>
       <width>771</width>
       <height>401</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>4</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab_1">
      <attribute name="title">
       <string>plat du jour</string>
      </attribute>
-     <widget class="QScrollArea" name="scrollArea">
+     <widget class="QScrollArea" name="scrollArea_1">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -119,14 +119,14 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>369</width>
-         <height>369</height>
+         <width>367</width>
+         <height>367</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_6">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>50</y>
           <width>51</width>
           <height>16</height>
@@ -139,20 +139,20 @@
        <widget class="QLabel" name="label_5">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>30</y>
-          <width>51</width>
+          <width>31</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>Saveur:</string>
+         <string>Prix:</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_4">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>10</y>
           <width>51</width>
           <height>16</height>
@@ -162,41 +162,11 @@
          <string>Nom:</string>
         </property>
        </widget>
-       <widget class="QTextEdit" name="textEdit_3">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>10</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTextEdit" name="textEdit">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>30</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTextEdit" name="textEdit_4">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>50</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_7">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>90</y>
+          <x>10</x>
+          <y>260</y>
           <width>81</width>
           <height>16</height>
          </rect>
@@ -205,12 +175,12 @@
          <string>Description:</string>
         </property>
        </widget>
-       <widget class="QTextEdit" name="textEdit_5">
+       <widget class="QTextEdit" name="pj_description">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>120</y>
-          <width>301</width>
+          <x>10</x>
+          <y>280</y>
+          <width>351</width>
           <height>79</height>
          </rect>
         </property>
@@ -219,13 +189,78 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>210</y>
+          <y>70</y>
           <width>51</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>Note</string>
+         <string>Note:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="pj_picture">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>90</y>
+          <width>271</width>
+          <height>171</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>picture to be put here</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="pj_name">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>10</y>
+          <width>151</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="pj_prix">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>30</y>
+          <width>161</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="pj_calorie">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>50</y>
+          <width>201</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="pj_note">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>70</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
         </property>
        </widget>
       </widget>
@@ -247,8 +282,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>339</width>
-         <height>369</height>
+         <width>337</width>
+         <height>367</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_9">
@@ -362,7 +397,7 @@
          <string>+</string>
         </property>
        </widget>
-       <widget class="QScrollArea" name="scrollArea_15">
+       <widget class="QScrollArea" name="scrollArea_list_platdujour">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -374,14 +409,17 @@
         <property name="widgetResizable">
          <bool>true</bool>
         </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents_15">
+        <widget class="QWidget" name="scrollAreaWidget_list_platdujour">
          <property name="geometry">
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>319</width>
-           <height>249</height>
+           <width>317</width>
+           <height>247</height>
           </rect>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
          </property>
         </widget>
        </widget>
@@ -392,7 +430,7 @@
      <attribute name="title">
       <string>entrée</string>
      </attribute>
-     <widget class="QScrollArea" name="scrollArea_6">
+     <widget class="QScrollArea" name="scrollArea_4">
       <property name="geometry">
        <rect>
         <x>370</x>
@@ -409,8 +447,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>339</width>
-         <height>369</height>
+         <width>337</width>
+         <height>367</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_27">
@@ -524,7 +562,7 @@
          <string>+</string>
         </property>
        </widget>
-       <widget class="QScrollArea" name="scrollArea_14">
+       <widget class="QScrollArea" name="scrollArea_list_entree">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -536,13 +574,13 @@
         <property name="widgetResizable">
          <bool>true</bool>
         </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents_14">
+        <widget class="QWidget" name="scrollAreaWidget_list_entree">
          <property name="geometry">
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>319</width>
-           <height>249</height>
+           <width>317</width>
+           <height>247</height>
           </rect>
          </property>
         </widget>
@@ -566,14 +604,14 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>369</width>
-         <height>369</height>
+         <width>367</width>
+         <height>367</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_13">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>50</y>
           <width>51</width>
           <height>16</height>
@@ -586,20 +624,20 @@
        <widget class="QLabel" name="label_14">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>30</y>
-          <width>51</width>
+          <width>31</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>Saveur:</string>
+         <string>Prix:</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_15">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>10</y>
           <width>51</width>
           <height>16</height>
@@ -609,41 +647,11 @@
          <string>Nom:</string>
         </property>
        </widget>
-       <widget class="QTextEdit" name="textEdit_9">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>10</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTextEdit" name="textEdit_10">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>30</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTextEdit" name="textEdit_11">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>50</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_16">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>90</y>
+          <x>10</x>
+          <y>260</y>
           <width>81</width>
           <height>16</height>
          </rect>
@@ -652,12 +660,12 @@
          <string>Description:</string>
         </property>
        </widget>
-       <widget class="QTextEdit" name="textEdit_12">
+       <widget class="QTextEdit" name="e_description">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>120</y>
-          <width>301</width>
+          <x>10</x>
+          <y>280</y>
+          <width>351</width>
           <height>79</height>
          </rect>
         </property>
@@ -666,13 +674,78 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>210</y>
-          <width>51</width>
+          <y>70</y>
+          <width>41</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>Note</string>
+         <string>Note:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="e_name">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>10</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="e_prix">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>30</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="e_calorie">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>50</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="e_picture">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>100</y>
+          <width>181</width>
+          <height>151</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Picture to be put here</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="e_note">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>70</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
         </property>
        </widget>
       </widget>
@@ -682,7 +755,7 @@
      <attribute name="title">
       <string>plat</string>
      </attribute>
-     <widget class="QScrollArea" name="scrollArea_4">
+     <widget class="QScrollArea" name="scrollArea_5">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -699,14 +772,14 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>369</width>
-         <height>369</height>
+         <width>367</width>
+         <height>367</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_18">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>50</y>
           <width>51</width>
           <height>16</height>
@@ -719,20 +792,20 @@
        <widget class="QLabel" name="label_19">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>30</y>
           <width>51</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>Saveur:</string>
+         <string>Prix:</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_20">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>10</y>
           <width>51</width>
           <height>16</height>
@@ -742,41 +815,11 @@
          <string>Nom:</string>
         </property>
        </widget>
-       <widget class="QTextEdit" name="textEdit_13">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>10</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTextEdit" name="textEdit_14">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>30</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTextEdit" name="textEdit_15">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>50</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_21">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>90</y>
+          <x>10</x>
+          <y>260</y>
           <width>81</width>
           <height>16</height>
          </rect>
@@ -785,12 +828,12 @@
          <string>Description:</string>
         </property>
        </widget>
-       <widget class="QTextEdit" name="textEdit_16">
+       <widget class="QTextEdit" name="p_description">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>120</y>
-          <width>301</width>
+          <x>10</x>
+          <y>280</y>
+          <width>351</width>
           <height>79</height>
          </rect>
         </property>
@@ -799,18 +842,83 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>210</y>
+          <y>70</y>
           <width>51</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>Note</string>
+         <string>Note:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="p_name">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>10</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="p_prix">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>30</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="p_calorie">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>50</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="p_picture">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>100</y>
+          <width>181</width>
+          <height>151</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Picture to be put here</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="p_note">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>70</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
         </property>
        </widget>
       </widget>
      </widget>
-     <widget class="QScrollArea" name="scrollArea_5">
+     <widget class="QScrollArea" name="scrollArea_6">
       <property name="geometry">
        <rect>
         <x>370</x>
@@ -827,8 +935,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>339</width>
-         <height>369</height>
+         <width>337</width>
+         <height>367</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_23">
@@ -942,7 +1050,7 @@
          <string>+</string>
         </property>
        </widget>
-       <widget class="QScrollArea" name="scrollArea_13">
+       <widget class="QScrollArea" name="scrollArea_list_plat">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -954,13 +1062,13 @@
         <property name="widgetResizable">
          <bool>true</bool>
         </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents_13">
+        <widget class="QWidget" name="scrollAreaWidget_list_plat">
          <property name="geometry">
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>319</width>
-           <height>249</height>
+           <width>317</width>
+           <height>247</height>
           </rect>
          </property>
         </widget>
@@ -989,14 +1097,14 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>369</width>
-         <height>369</height>
+         <width>367</width>
+         <height>367</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_31">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>50</y>
           <width>51</width>
           <height>16</height>
@@ -1009,20 +1117,20 @@
        <widget class="QLabel" name="label_32">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>30</y>
           <width>51</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>Saveur:</string>
+         <string>Prix</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_33">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>10</y>
           <width>51</width>
           <height>16</height>
@@ -1032,41 +1140,11 @@
          <string>Nom:</string>
         </property>
        </widget>
-       <widget class="QTextEdit" name="textEdit_21">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>10</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTextEdit" name="textEdit_22">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>30</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTextEdit" name="textEdit_23">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>50</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_34">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>90</y>
+          <x>10</x>
+          <y>260</y>
           <width>81</width>
           <height>16</height>
          </rect>
@@ -1075,12 +1153,12 @@
          <string>Description:</string>
         </property>
        </widget>
-       <widget class="QTextEdit" name="textEdit_24">
+       <widget class="QTextEdit" name="d_description">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>120</y>
-          <width>301</width>
+          <x>10</x>
+          <y>280</y>
+          <width>351</width>
           <height>79</height>
          </rect>
         </property>
@@ -1089,13 +1167,78 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>210</y>
+          <y>70</y>
           <width>51</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>Note</string>
+         <string>Note:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="d_name">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>10</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="d_prix">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>30</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="d_calorie">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>50</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="d_picture">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>90</y>
+          <width>261</width>
+          <height>161</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Picture to be put here</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="d_note">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>70</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
         </property>
        </widget>
       </widget>
@@ -1117,8 +1260,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>339</width>
-         <height>369</height>
+         <width>337</width>
+         <height>367</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_36">
@@ -1232,7 +1375,7 @@
          <string>+</string>
         </property>
        </widget>
-       <widget class="QScrollArea" name="scrollArea_12">
+       <widget class="QScrollArea" name="scrollArea_list_dessert">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -1244,13 +1387,13 @@
         <property name="widgetResizable">
          <bool>true</bool>
         </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents_12">
+        <widget class="QWidget" name="scrollAreaWidget_list_dessert">
          <property name="geometry">
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>319</width>
-           <height>249</height>
+           <width>317</width>
+           <height>247</height>
           </rect>
          </property>
         </widget>
@@ -1279,14 +1422,14 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>369</width>
-         <height>369</height>
+         <width>367</width>
+         <height>367</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_40">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>50</y>
           <width>51</width>
           <height>16</height>
@@ -1299,20 +1442,20 @@
        <widget class="QLabel" name="label_41">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>30</y>
           <width>51</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>Saveur:</string>
+         <string>Prix</string>
         </property>
        </widget>
        <widget class="QLabel" name="label_42">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>10</x>
           <y>10</y>
           <width>51</width>
           <height>16</height>
@@ -1322,41 +1465,11 @@
          <string>Nom:</string>
         </property>
        </widget>
-       <widget class="QTextEdit" name="textEdit_27">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>10</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTextEdit" name="textEdit_28">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>30</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
-       <widget class="QTextEdit" name="textEdit_29">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>50</y>
-          <width>61</width>
-          <height>16</height>
-         </rect>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_43">
         <property name="geometry">
          <rect>
-          <x>20</x>
-          <y>90</y>
+          <x>10</x>
+          <y>260</y>
           <width>81</width>
           <height>16</height>
          </rect>
@@ -1365,12 +1478,12 @@
          <string>Description:</string>
         </property>
        </widget>
-       <widget class="QTextEdit" name="textEdit_30">
+       <widget class="QTextEdit" name="b_description">
         <property name="geometry">
          <rect>
-          <x>0</x>
-          <y>120</y>
-          <width>301</width>
+          <x>10</x>
+          <y>280</y>
+          <width>351</width>
           <height>79</height>
          </rect>
         </property>
@@ -1379,13 +1492,78 @@
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>210</y>
+          <y>70</y>
           <width>51</width>
           <height>16</height>
          </rect>
         </property>
         <property name="text">
-         <string>Note</string>
+         <string>Note:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="b_name">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>10</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="b_prix">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>30</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="b_calorie">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>50</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_49">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>90</y>
+          <width>221</width>
+          <height>161</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Picture to be put here.</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="b_note">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>70</y>
+          <width>61</width>
+          <height>15</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
         </property>
        </widget>
       </widget>
@@ -1407,8 +1585,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>339</width>
-         <height>369</height>
+         <width>337</width>
+         <height>367</height>
         </rect>
        </property>
        <widget class="QLabel" name="label_45">
@@ -1522,7 +1700,7 @@
          <string>+</string>
         </property>
        </widget>
-       <widget class="QScrollArea" name="scrollArea_11">
+       <widget class="QScrollArea" name="scrollArea_list_boisson">
         <property name="geometry">
          <rect>
           <x>9</x>
@@ -1534,13 +1712,13 @@
         <property name="widgetResizable">
          <bool>true</bool>
         </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents_11">
+        <widget class="QWidget" name="scrollAreaWidget_list_boisson">
          <property name="geometry">
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>319</width>
-           <height>249</height>
+           <width>317</width>
+           <height>247</height>
           </rect>
          </property>
         </widget>

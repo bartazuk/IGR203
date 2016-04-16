@@ -6,10 +6,11 @@ platIntro::platIntro(QWidget *parent) : QWidget(parent)
     setMaximumSize(500,100);
 
 }
+platIntro::platIntro(plat *plat){
 
-void platIntro::SetUpLayout(plat *plat)
-{
-
+    setMinimumSize(200,120);
+    setMaximumSize(500,100);
+    _plat = plat;
     layoutGlobal = new QHBoxLayout();
     setLayout(layoutGlobal);
     layoutImage= new QHBoxLayout();
@@ -49,7 +50,6 @@ void platIntro::SetUpLayout(plat *plat)
 
     connect(add,SIGNAL(clicked( )), this, SLOT(on_Add_clicked()));
     connect(showDetail,SIGNAL(clicked( )), this, SLOT(on_Detail_clicked()));
-
 }
 
 void platIntro::paintEvent(QPaintEvent *e)
@@ -63,11 +63,11 @@ void platIntro::paintEvent(QPaintEvent *e)
 void platIntro::on_Add_clicked()
 {
 
-    emit addToPanier();
+    emit addToPanier(_plat);
 }
 
 void platIntro::on_Detail_clicked()
 {
-    emit afficherDetails();
+    emit afficherDetails(_plat);
 }
 

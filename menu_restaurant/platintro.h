@@ -20,6 +20,7 @@ class platIntro : public QWidget
     Q_OBJECT
 public:
     explicit platIntro(QWidget *parent = 0);
+    platIntro(plat* plat);
     QHBoxLayout *layoutGlobal;
     QHBoxLayout *layoutImage;
     QVBoxLayout *layoutDescrip;
@@ -43,8 +44,11 @@ private slots:
     void on_Detail_clicked();//slot pour le button detail
 
 signals:
-    void addToPanier();
-    void afficherDetails();//signal pour ajouter les templates
+    void addToPanier(plat*);
+    void afficherDetails(plat*);//signal pour ajouter les templates
+
+private:
+    plat* _plat;
 };
 
 #endif // PLATINTRO_H

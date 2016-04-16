@@ -39,7 +39,7 @@ void Menu::createPlat(QXmlStreamReader& rxml, plat * p, string type){
             p->setAvis(rxml.readElementText().toInt());
         }
     }
-    p->printAttrib();
+//    p->printAttrib();
 }
 
 void Menu::createPlatDuJour(QXmlStreamReader& rxml){
@@ -90,13 +90,13 @@ void Menu::createBoisson(QXmlStreamReader& rxml, boisson * p, string type){
             p->setAvis(rxml.readElementText().toInt());
         }
     }
-    p->printAttrib();
+//    p->printAttrib();
 
 }
 
 Menu::Menu()
 {
-    std::cout << "In the constructer of the menu" << std::endl;
+//    std::cout << "In the constructer of the menu" << std::endl;
     QString qpath = ":/xml/menu";
     QFile file(qpath);
 
@@ -139,7 +139,7 @@ Menu::Menu()
             break;
         }
     }
-    std::cout << "Instance constructed successfully" << std::endl;
+//    std::cout << "Instance constructed successfully" << std::endl;
 }
 
 //Menu::~Menu(){

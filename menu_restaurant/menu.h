@@ -25,6 +25,11 @@ public:
         std::cout << "Hello" << std::endl;
     }
 
+    map<string,plat *> entrees;
+    map<string,plat *> plats;
+    map<string,plat *> desserts;
+    map<string,plat *> boissons;
+    map<string,plat *> platDuJour;
 private:
     Menu();
 //    ~Menu();
@@ -34,11 +39,7 @@ private:
     void createPlat(QXmlStreamReader&, plat *, string type);
     void createPlatDuJour(QXmlStreamReader&);
 
-    map<string,plat *> entrees;
-    map<string,plat *> plats;
-    map<string,plat *> desserts;
-    map<string,plat *> boissons;
-    map<string,plat *> platDuJour;
+
     int prixPlatDuJour;
     void createBoisson(QXmlStreamReader &rxml, boisson *p, string type);
 };

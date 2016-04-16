@@ -43,11 +43,26 @@ private slots:
         void on_like_boisson_clicked();
 
         void on_dislike_boisson_clicked();
+
+        void afficheDetail(plat*);
 private:
     Ui::MainWindow *ui;
     Like *preference;
     Dislike *ne_mange_pas;
 
+    vector<platIntro*> entreeList;
+    vector<platIntro*> platList;
+    vector<platIntro*> dessertList;
+    vector<platIntro*> boissonList;
+    vector<platIntro*> platdujourList;
+
+    QVBoxLayout entreeLayout;
+    QVBoxLayout platLayout;
+    QVBoxLayout dessertLayout;
+    QVBoxLayout boissonLayout;
+    QVBoxLayout platdujourLayout;
+
+    void updateDisplayList();
 };
 
 #endif // MAINWINDOW_H

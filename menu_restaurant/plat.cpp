@@ -1,6 +1,8 @@
 #include "plat.h"
 
-plat::plat(){}
+plat::plat(){
+    setImage(":myImages/image/testpic2.png");
+}
 
 plat::plat(string _nom, vector<string> _ingredient, int _avis, int _calorie, int _prix, const QString _imagePath){
     setNom(_nom);
