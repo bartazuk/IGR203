@@ -4,7 +4,7 @@ panier::~panier()
 {
 }
 
-panier::panier(vector<plat> _listPlat, int _numClient, int _somme, int _numTable){
+panier::panier(vector<plat*> _listPlat, int _numClient, int _somme, int _numTable){
 
     listPlat = _listPlat;
     numClient = _numClient;
@@ -13,12 +13,12 @@ panier::panier(vector<plat> _listPlat, int _numClient, int _somme, int _numTable
 }
 
 
-vector<plat> panier::getListPlat() const
+vector<plat*> panier::getListPlat() const
 {
     return listPlat;
 }
 
-void panier::setListPlat(const vector<plat> &_listPlat)
+void panier::setListPlat(const vector<plat*> &_listPlat)
 {
     listPlat = _listPlat;
 }
