@@ -420,12 +420,16 @@ void MainWindow::updateLike( QVBoxLayout* layout_,vector<platIntro*> &list_)
               len =  (**iter)._plat->getIngredient().size();
               for (int i=0;i<len;i++)
               {
-                  if ((**iter)._plat->getIngredient()[i]==preference->ingrediantName)
+                  vector<string>::iterator iter1;
+                  for(iter1=preference->ingrediantName.begin();iter1!=preference->ingrediantName.end();iter1++)
                   {
-                  cout<<(**iter)._plat->getIngredient()[i]<<endl;
+                  if ((**iter)._plat->getIngredient()[i]==(*iter1))
+                  {
+
                   deletedlist.push_back((*iter));
                   layout_->removeWidget(*iter);
                   break;
+                  }
                   }
               }
             }
@@ -436,33 +440,36 @@ void MainWindow::updateLike( QVBoxLayout* layout_,vector<platIntro*> &list_)
              layout_->insertWidget(0,(*iter));
 
         }
-
+   preference->ingrediantName.clear();
 
 }
  void MainWindow:: updatedisLike(QVBoxLayout* layout_,vector<platIntro*> &list_)
  {
 
      cout<<"label    "<<preference->label<<endl;
-     cout<<ne_mange_pas->ingrediantName<<endl;
+
      int len =0;
      vector<platIntro*> deletedlist;
+     deletedlist.clear();
      vector<platIntro*>::iterator iter;
      for (iter=list_.begin();iter!=list_.end();iter++)
          {
            len =  (**iter)._plat->getIngredient().size();
            for (int i=0;i<len;i++)
            {
-               if ((**iter)._plat->getIngredient()[i]==ne_mange_pas->ingrediantName)
+               vector<string>::iterator iter1;
+               for(iter1=ne_mange_pas->ingrediantName.begin();iter1!=ne_mange_pas->ingrediantName.end();iter1++)
+               {
+               if ((**iter)._plat->getIngredient()[i]==(*iter1))
                {
                cout<<(**iter)._plat->getIngredient()[i]<<endl;
                (**iter).hide();
                break;
                }
+               }
            }
          }
-
-
-
+     ne_mange_pas->ingrediantName.clear();
  }
 
 
