@@ -4,13 +4,13 @@
 #include <QMainWindow>
 #include <QLabel>
 #include <QPushButton>
-
+#include "clientinput.h"
 class IntroWindow : public QMainWindow
 {
     Q_OBJECT
 public:
     explicit IntroWindow(QWidget *parent = 0);
-
+    ClientInput* getClient() {return &clients;}
 signals:
     void FINISHED();
 
@@ -25,6 +25,8 @@ private:
     QPushButton nextBtn;
     QPushButton skipBtn;
     QPushButton addClient;
+
+    ClientInput clients;
 };
 
 #endif // INTROWINDOW_H

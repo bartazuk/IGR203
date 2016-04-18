@@ -34,13 +34,14 @@ IntroWindow::IntroWindow(QWidget *parent) : QMainWindow(parent)
     wdgt->setLayout(vlayout);
     vlayout->addWidget(&introText);
     vlayout->addWidget(&introLabel);
+    vlayout->addWidget(&clients);
     vlayout->addWidget(&nextBtn);
     vlayout->addWidget(&skipBtn);
     this->setCentralWidget(wdgt);
 }
 
 void IntroWindow::onNextClicked(){
-    if(qIdx==3) emit FINISHED();
+    if(qIdx==2) emit FINISHED();
     else{
         qIdx++;
         introLabel.setText(introQuestion[qIdx]);

@@ -9,11 +9,11 @@
 class panier
 {
 public:
-    panier(vector<plat> _listPlat={}, int _numClient=0, int _somme=0, int _numTable=0);
+    panier(vector<plat*> _listPlat={}, int _numClient=0, int _somme=0, int _numTable=0);
     ~panier();
 
-    vector<plat> getListPlat() const;
-    void setListPlat(const vector<plat> &value);
+    vector<plat*> getListPlat() const;
+    void setListPlat(const vector<plat *> &value);
 
     int getNumTable() const;
     void setNumTable(int value);
@@ -25,8 +25,8 @@ public:
     void setSomme(int value);
 
 
-private:
-    vector<plat> listPlat;
+protected:
+    vector<plat*> listPlat;
     int numClient;
     int somme;
     int numTable;

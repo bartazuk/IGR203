@@ -9,7 +9,7 @@
 #include "platintro.h"
 #include "like.h"
 #include "dislike.h"
-
+#include "panierwindow.h"
 namespace Ui {
 class MainWindow;
 }
@@ -21,7 +21,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    void SetUpLayout();
+//    void SetUpLayout();
     void updateLike(QVBoxLayout* layout_,vector<platIntro*> &list_);
     void updatedisLike(QVBoxLayout* layout_,vector<platIntro*> &list_);
 
@@ -37,7 +37,7 @@ public:
     QVBoxLayout boissonLayout;
     QVBoxLayout platdujourLayout;
 
-
+    void setClient(ClientInput* _client){ panier->setClient(_client);}
 private slots:
 
      void afficheDetail(plat*);
@@ -64,13 +64,15 @@ private slots:
      void like_label();
      void dislike_label();
 
+     void openPanier();
 
+     void updatePanier();
 
 private:
     Ui::MainWindow *ui;
     Like *preference;
     Dislike *ne_mange_pas;
-
+    PanierWindow* panier;
 
 
     void updateDisplayList();
