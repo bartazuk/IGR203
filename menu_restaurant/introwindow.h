@@ -5,12 +5,13 @@
 #include <QLabel>
 #include <QPushButton>
 #include "clientinput.h"
+#include "like.h"
 class IntroWindow : public QMainWindow
 {
     Q_OBJECT
 public:
-    explicit IntroWindow(QWidget *parent = 0);
-    ClientInput* getClient() {return &clients;}
+    explicit IntroWindow(QWidget* like,QWidget* _dislike,QWidget *parent = 0);
+//    ClientInput* getClient() {return &clients;}
 signals:
     void FINISHED();
 
@@ -26,7 +27,12 @@ private:
     QPushButton skipBtn;
     QPushButton addClient;
 
-    ClientInput clients;
+    QWidget* answer;
+//    ClientInput clients;
+    QWidget* preference;
+    QWidget* dislike;
+    QVBoxLayout* vlayout;
+//    preference = new Like();
 };
 
 #endif // INTROWINDOW_H

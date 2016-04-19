@@ -9,6 +9,7 @@
     <prix>8</prix>
     <calorie>130</calorie>
     <etoile>4</etoile>
+    <image>:myImages/image/salade de thon.jpg</image>
   </entree>
   <entree>
     <nom>Huitre</nom>
@@ -17,6 +18,7 @@
     <prix>12</prix>
     <calorie>100</calorie>
     <etoile>5</etoile>
+    <image>:myImages/image/Huitre.jpg</image>
   </entree>
   <entree>
     <nom>foie gras</nom>
@@ -25,9 +27,10 @@
     <prix>20</prix>
     <calorie>600</calorie>
     <etoile>5</etoile>
+    <image>:myImages/image/Huitre.jpg</image>
   </entree>
-  
-  
+
+
   <plat>
     <nom>Boeuf bourguignon</nom>
     <ingredient>Boeuf,vin,tomates</ingredient>
@@ -35,8 +38,9 @@
     <prix>15</prix>
     <calorie>250</calorie>
     <etoile>5</etoile>
+    <image>:myImages/image/Boeuf bourguignon.jpg</image>
   </plat>
-  
+
   <plat>
     <nom>Confit de canard et haricots</nom>
     <ingredient>canard,viande,haricot</ingredient>
@@ -44,6 +48,7 @@
     <prix>15</prix>
     <calorie>250</calorie>
     <etoile>5</etoile>
+    <image>:myImages/image/Confit de canard et haricots.jpg</image>
   </plat>
   <plat>
     <nom>kebab</nom>
@@ -52,6 +57,7 @@
     <prix>5</prix>
     <calorie>700</calorie>
     <etoile>3</etoile>
+    <image>:myImages/image/kebab.png</image>
   </plat>
   <plat>
     <nom>pizza 4 fromages</nom>
@@ -60,8 +66,9 @@
     <prix>9</prix>
     <calorie>300</calorie>
     <etoile>2</etoile>
+    <image>:myImages/image/pizza 4 fromages.png</image>
   </plat>
-  
+
   <dessert>
     <nom>mouse au chocolat</nom>
     <ingredient>chocolat,lait</ingredient>
@@ -69,6 +76,7 @@
     <prix>6</prix>
     <calorie>300</calorie>
     <etoile>4</etoile>
+    <image>:myImages/image/mouse au chocolat.jpg</image>
   </dessert>
   <dessert>
     <nom>tarte aux pommes</nom>
@@ -77,6 +85,7 @@
     <prix>8</prix>
     <calorie>200</calorie>
     <etoile>2</etoile>
+    <image>:myImages/image/tarte aux pommes.jpeg</image>
   </dessert>
   <dessert>
     <nom>creme brulee</nom>
@@ -85,6 +94,7 @@
     <prix>5</prix>
     <calorie>300</calorie>
     <etoile>2</etoile>
+    <image>:myImages/image/creme brulee.jpg</image>
   </dessert>
 
   <boisson>
@@ -94,6 +104,7 @@
     <etoile>5</etoile>
     <taille>25,50,100</taille>
     <alcool>4</alcool>
+    <image>:myImages/image/vin rouge.jpg</image>
   </boisson>
   <boisson>
     <nom>vin blanc</nom>
@@ -102,6 +113,7 @@
     <etoile>4</etoile>
     <taille>25,50,100</taille>
     <alcool>3</alcool>
+    <image>:myImages/image/vin blanc.jpg</image>
   </boisson>
   <boisson>
     <nom>biere</nom>
@@ -110,6 +122,7 @@
     <etoile>4</etoile>
     <taille>25,50</taille>
     <alcool>3</alcool>
+    <image>:myImages/image/biere.jpg</image>
   </boisson>
   <boisson>
     <nom>jus d'orange</nom>
@@ -118,6 +131,7 @@
     <etoile>3</etoile>
     <taille>33</taille>
     <alcool>0</alcool>
+    <image>:myImages/image/jus d'orange.jpg</image>
   </boisson>
   <boisson>
     <nom>coca</nom>
@@ -126,14 +140,16 @@
     <etoile>4</etoile>
     <taille>33,50,100</taille>
     <alcool>0</alcool>
+    <image>:myImages/image/coca.jpg</image>
   </boisson>
-  
+
   <plat_du_jour>
     <prix>20</prix>
-    <entree_>Garbure</entree_>
-    <plat_>Confit de canard</plat_>
-    <dessert_>glace à la vanille</dessert_>
+    <entree_>Huitre</entree_>
+    <plat_>Confit de canard et haricots</plat_>
+    <dessert_>creme brulee</dessert_>
     <vin_>vin rouge</vin_>
+    <image>:myImages/image/platDuJour.jpg</image>
   </plat_du_jour>
-  
+
 </menu>

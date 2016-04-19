@@ -3,15 +3,46 @@
 eMenu::eMenu()
 {
     mode = INTRO;
-    connect(&intro,SIGNAL(FINISHED()),this,SLOT(introFinished()));
+    like = new Like();
+    dislike = new Dislike();
+    intro = new IntroWindow(like->getWidget(),dislike->getWidget());
+    hp = new HomePage();
+    connect(intro,SIGNAL(FINISHED()),this,SLOT(introFinished()));
+    connect(hp,SIGNAL(menu()),this,SLOT(openMenu()));
+    firstTime = true;
+
+    order = new PanierWindow();
+    order->setStatic();
+    connect(hp,SIGNAL(order()),order,SLOT(open()));
+
 }
 
 void eMenu::start(){
-    intro.show();
+//    intro->show();
+    hp->show();
 }
 
 void eMenu::introFinished(){
-    intro.close();
-    mw.show();
-    mw.setClient(intro.getClient());
+    intro->close();
+    mw = new MainWindow();
+    connect(mw,SIGNAL(orderSubmitted()),this,SLOT(updateOrder()));
+    mw->show();
+    mw->setClient();
+    mw->updateDislike();
+    mw->updateLike();
+}
+
+void eMenu::openMenu(){
+    if(firstTime) {intro->show();firstTime=false;}
+    else mw->show();
+}
+
+void eMenu::updateOrder(){
+    std::vector<plat*> platlist = mw->panier->getListPlat();
+    order->updateClient(true);
+    for(int i=0; i<platlist.size(); i++){
+        order->addPlat(platlist[i]);
+    }
+    mw->panier->clear();
+    mw->hide();
 }

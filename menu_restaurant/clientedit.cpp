@@ -3,11 +3,14 @@
 #include <QVBoxLayout>
 #include <iostream>
 #include <QHBoxLayout>
-clientEdit::clientEdit(ClientInput* _client,QWidget *parent) :
-    client(_client),QDialog(parent)
+#include <QDebug>
+clientEdit::clientEdit(QWidget *parent) :
+    QDialog(parent)
 {
 //    client->setParent(this);
-
+//    qDebug()<< client->getClient(0);
+    client = &ClientInput::Instance();
+    client->show();
     QPushButton* cancelBtn = new QPushButton("Cancel");
     QPushButton* confirmBtn = new QPushButton("Confirm");
 

@@ -23,6 +23,7 @@ public:
     QCheckBox *ing5;
     QCheckBox *ing6;
     QCheckBox *ing7;
+    QWidget* getWidget() {return choicesWidget;}
 
 signals:
      void confirm();
@@ -30,6 +31,9 @@ signals:
 public slots:
 
     void confirmSLOT();
+
+private:
+    QWidget* choicesWidget;
 };
 
 #endif // DISLIKE_H

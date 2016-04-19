@@ -38,6 +38,9 @@ void Menu::createPlat(QXmlStreamReader& rxml, plat * p, string type){
         else if(rxml.name()=="etoile"){
             p->setAvis(rxml.readElementText().toInt());
         }
+        else if(rxml.name()=="image"){
+            p->setImage(QString::fromStdString(rxml.readElementText().toStdString()));
+        }
     }
 //    p->printAttrib();
 }
@@ -88,6 +91,9 @@ void Menu::createBoisson(QXmlStreamReader& rxml, boisson * p, string type){
         }
         else if(rxml.name()=="etoile"){
             p->setAvis(rxml.readElementText().toInt());
+        }
+        else if(rxml.name()=="image"){
+            p->setImage(QString::fromStdString(rxml.readElementText().toStdString()));
         }
     }
 //    p->printAttrib();

@@ -66,13 +66,15 @@ Dislike::Dislike(QWidget *parent) : QMainWindow(parent)
  Layout3->addWidget(empty2);
  Layout3->addWidget(quit);
 
-
-
+choicesWidget = new QWidget;
+QVBoxLayout* choicesLayout = new QVBoxLayout;
+choicesLayout->addLayout(Layout0);
+choicesLayout->addLayout(Layout1);
+choicesLayout->addLayout(Layout2);
+choicesWidget->setLayout(choicesLayout);
 
 //add to mainlayout
- mainLayout->addLayout(Layout0);
- mainLayout->addLayout(Layout1);
- mainLayout->addLayout(Layout2);
+ mainLayout->addWidget(choicesWidget);
  mainLayout->addLayout(Layout3);
 
 mainwidget->setLayout(mainLayout);

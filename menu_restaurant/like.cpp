@@ -8,7 +8,7 @@ Like::Like(QWidget *parent) : QMainWindow(parent)
 
 
 //mainwidget and mainlayout
-QWidget * mainwidget = new QWidget;
+QWidget* mainWidget = new QWidget;
 QVBoxLayout * mainLayout = new QVBoxLayout;
 
 //welcome
@@ -73,17 +73,23 @@ QVBoxLayout * mainLayout = new QVBoxLayout;
  connect(quit, SIGNAL( clicked() ), this, SLOT( confirmSLOT()) );
 
 
+ choicesWidget = new QWidget;
+ QVBoxLayout* choicesLayout = new QVBoxLayout;
+ choicesWidget->setLayout(choicesLayout);
+
+ choicesLayout->addLayout(Layout0);
+ choicesLayout->addLayout(Layout1);
+ choicesLayout->addLayout(Layout2);
+ choicesLayout->addLayout(Layout3);
+
  //add layouts to main layout
- mainLayout->addLayout(Layout0);
- mainLayout->addLayout(Layout1);
- mainLayout->addLayout(Layout2);
- mainLayout->addLayout(Layout3);
+ mainLayout->addWidget(choicesWidget);
  mainLayout->addLayout(Layout4);
 
- mainwidget->setLayout(mainLayout);
- mainwidget->setFixedSize(450, 200);
+ mainWidget->setLayout(mainLayout);
+ mainWidget->setFixedSize(450, 200);
 
- setCentralWidget(mainwidget);
+ setCentralWidget(mainWidget);
 }
 
 void Like::confirmSLOT()

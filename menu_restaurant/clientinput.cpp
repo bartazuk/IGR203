@@ -14,6 +14,7 @@ ClientInput::ClientInput(QWidget *parent) :
     prefixs.push_back(ui->comboBox_2);
     prefixs.push_back(ui->comboBox_3);
     prefixs.push_back(ui->comboBox_4);
+    setMinimumSize(150,150);
 }
 
 ClientInput::~ClientInput()

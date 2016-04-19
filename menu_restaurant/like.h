@@ -28,11 +28,14 @@ public:
     vector<platIntro*> list;
     vector<platIntro*> deletedlist;
 
-
+    QWidget* getWidget() { return choicesWidget;}
 signals:
     void confirm();
 public slots:
     void confirmSLOT();
+private:
+    QWidget* choicesWidget;
+
 };
 
 #endif // LIKE_H

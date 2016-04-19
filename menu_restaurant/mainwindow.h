@@ -24,7 +24,8 @@ public:
 //    void SetUpLayout();
     void updateLike(QVBoxLayout* layout_,vector<platIntro*> &list_);
     void updatedisLike(QVBoxLayout* layout_,vector<platIntro*> &list_);
-
+    void updateLike();
+    void updateDislike();
     vector<platIntro*> entreeList;
     vector<platIntro*> platList;
     vector<platIntro*> dessertList;
@@ -37,8 +38,16 @@ public:
     QVBoxLayout boissonLayout;
     QVBoxLayout platdujourLayout;
 
-    void setClient(ClientInput* _client){ panier->setClient(_client);}
+    PanierWindow* panier;
+    void setClient(){ panier->setClient();}
+    void setPreference(Like* _like) {preference = _like;}
+    void setDislike(Dislike* _dislike) {ne_mange_pas = _dislike;}
+
+signals:
+    void orderSubmitted();
+
 private slots:
+    void submitOrder(){emit orderSubmitted();}
 
      void afficheDetail(plat*);
      void on_boisson_addlike_clicked();
@@ -72,7 +81,7 @@ private:
     Ui::MainWindow *ui;
     Like *preference;
     Dislike *ne_mange_pas;
-    PanierWindow* panier;
+
 
 
     void updateDisplayList();

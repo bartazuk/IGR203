@@ -16,7 +16,11 @@ class ClientInput : public QWidget
     Q_OBJECT
 
 public:
-    explicit ClientInput(QWidget *parent = 0);
+    static ClientInput& Instance(){
+        static ClientInput instance;
+        return instance;
+    }
+
     ~ClientInput();
 //    int clientNum();
     QString getClient(int idx){
@@ -24,6 +28,9 @@ public:
         else return "";
     }
 private:
+    ClientInput(QWidget *parent = 0);
+    ClientInput(const ClientInput&);
+    ClientInput& operator=(const ClientInput&);
     Ui::ClientInput *ui;
     std::vector<QLineEdit*> names;
     std::vector<QComboBox*> prefixs;

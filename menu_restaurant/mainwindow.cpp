@@ -65,6 +65,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ne_mange_pas, SIGNAL(confirm()),this,SLOT(dislike_label()));
     connect(ui->panierBtn, SIGNAL(clicked(bool)),this,SLOT(openPanier()));
     connect(panier,SIGNAL(panierUpdated()),this,SLOT(updatePanier()));
+    connect(panier,SIGNAL(orderComfirmed()),this,SLOT(submitOrder()));
 }
 
 
@@ -282,6 +283,21 @@ void MainWindow::on_platdujour_adddislike_clicked()
     ne_mange_pas ->show();
 }
 
+void MainWindow::updateLike(){
+    updateLike(&platdujourLayout,platdujourList);
+    updateLike(&entreeLayout,entreeList);
+    updateLike(&platLayout,platList);
+    updateLike(&dessertLayout,dessertList);
+    updateLike(&boissonLayout,boissonList);
+}
+
+void MainWindow::updateDislike(){
+    updatedisLike(&platdujourLayout,platdujourList);
+    updatedisLike(&entreeLayout,entreeList);
+    updatedisLike(&platLayout,platList);
+    updatedisLike(&dessertLayout,dessertList);
+    updatedisLike(&boissonLayout,boissonList);
+}
 
 void MainWindow::updateLike( QVBoxLayout* layout_,vector<platIntro*> &list_)
 {

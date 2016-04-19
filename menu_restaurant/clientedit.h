@@ -8,11 +8,11 @@ class clientEdit : public QDialog
     Q_OBJECT
 
 public:
-    explicit clientEdit(ClientInput* _client, QWidget *parent = 0);
+    explicit clientEdit(QWidget *parent = 0);
     ~clientEdit();
 
-    void setClient(ClientInput* _client) {delete client;client=_client;}
-    ClientInput* getClient() {return client;}
+//    void setClient(ClientInput* _client) {delete client;client=_client;}
+//    ClientInput* getClient() {return client;}
 
 signals:
     void cancel(bool);
