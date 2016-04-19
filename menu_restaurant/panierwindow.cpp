@@ -1,20 +1,15 @@
 #include "panierwindow.h"
 #include "ui_panierwindow.h"
 #include <QString>
+#include <QDebug>
+#include <QMainWindow>
 PanierWindow::PanierWindow(QWidget *parent,vector<plat*> _listPlat, int _numClient, int _somme, int _numTable) :
     QDialog(parent), panier(_listPlat,_numClient,_somme,_numTable),
     ui(new Ui::PanierWindow)
 {
 
-    ctmp.addItem("---");
-//    for(int i=0; i<4; i++){
-//        if(!cltInput->getClient(i).isEmpty()){
-//            ctmp.addItem(cltInput->getClient(i));
-//        }
-//    }
-    std::cout << "HI" << std::endl;
+
     ui->setupUi(this);
-    std::cout << "HI" << std::endl;
     numPlat=_listPlat.size();
     for(int i=0; i<_listPlat.size(); i++){
 //        platIntro* tmp = new platIntro(_listPlat[i]);
@@ -24,7 +19,8 @@ PanierWindow::PanierWindow(QWidget *parent,vector<plat*> _listPlat, int _numClie
         QLabel* tmpPrix = new QLabel(QString::number(_listPlat[i]->getPrix()));
         prix.push_back(tmpPrix);
         ui->gridLayout->addWidget(tmpPrix,i,1);
-        QComboBox* tmpClt = new QComboBox(&ctmp);
+        QComboBox* tmpClt = new QComboBox;
+        tmpClt->addItem("---");
         clients.push_back(tmpClt);
         ui->gridLayout->addWidget(tmpClt,i,2);
         QPushButton* deleteBtn = new QPushButton("Delete");
@@ -32,17 +28,18 @@ PanierWindow::PanierWindow(QWidget *parent,vector<plat*> _listPlat, int _numClie
         btnGroup.addButton(deleteBtn,i);
         somme+=_listPlat[i]->getPrix();
     }
-    std::cout << "HI" << std::endl;
     connect(&btnGroup,SIGNAL(buttonClicked(int)),this,SLOT(deletePlat(int)));
+    connect(ui->addBtn,SIGNAL(clicked(bool)),this,SLOT(addClient()));
+    connect(ui->retourBtn,SIGNAL(clicked(bool)),this,SLOT(close()));
     ui->prixLabel->setText("Somme: "+QString::number(somme)+" EUR");
-    std::cout << "HI" << std::endl;
+
+
 }
-
-
 
 PanierWindow::~PanierWindow()
 {
     delete ui;
+    delete cltInput;
 }
 
 void PanierWindow::addPlat(plat *p){
@@ -55,9 +52,10 @@ void PanierWindow::addPlat(plat *p){
     QLabel* tmpPrix = new QLabel(QString::number(p->getPrix()));
     prix.push_back(tmpPrix);
     ui->gridLayout->addWidget(tmpPrix,idx,1);
-    QComboBox* tmpClt = new QComboBox(&ctmp);
-    clients.push_back(tmpClt);
-    ui->gridLayout->addWidget(tmpClt,idx,2);
+    QComboBox* clt = new QComboBox;
+    clt->addItems(clist);
+    clients.push_back(clt);
+    ui->gridLayout->addWidget(clients.back(),idx,2);
     QPushButton* deleteBtn = new QPushButton("Delete");
     ui->gridLayout->addWidget(deleteBtn,idx,3);
     btnGroup.addButton(deleteBtn,plats.size()-1);
@@ -68,12 +66,41 @@ void PanierWindow::addPlat(plat *p){
 }
 
 void PanierWindow::deletePlat(int idx){
-    ui->gridLayout->removeWidget(plats[idx]);
-    ui->gridLayout->removeWidget(clients[idx]);
-    ui->gridLayout->removeWidget(prix[idx]);
-    ui->gridLayout->removeWidget(btnGroup.button(idx));
+    plats[idx]->close();
+    clients[idx]->close();
+    prix[idx]->close();
+    btnGroup.button(idx)->close();
     somme-=listPlat[idx]->getPrix();
     ui->prixLabel->setText("Somme: "+QString::number(somme)+" EUR");
     numPlat--;
     emit panierUpdated();
+}
+
+void PanierWindow::addClient(){
+    cltInput->show();
+}
+
+void PanierWindow::updateClient(bool update){
+    if(update){
+        clist.clear();
+        clist.push_back("---");
+        for(int i=0; i<4; i++){
+            QString name = cltInput->getClient()->getClient(i);
+            if(!name.isEmpty()){
+                clist.push_back(name);
+            }
+        }
+
+        for(int i=0; i<clients.size(); i++){
+            clients[i]->clear();
+            clients[i]->addItems(clist);
+        }
+
+    }
+}
+
+void PanierWindow::confirmOrder(){
+    std::cout << "Order confirmed" << std::endl;
+    emit orderComfirmed();
+    this->close();
 }

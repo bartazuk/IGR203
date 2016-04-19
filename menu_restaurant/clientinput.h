@@ -20,7 +20,8 @@ public:
     ~ClientInput();
 //    int clientNum();
     QString getClient(int idx){
-        if(idx<4) return prefixs[idx]->currentText()+names[idx]->text();
+        if(idx<4 && !names[idx]->text().isEmpty()) return prefixs[idx]->currentText()+names[idx]->text();
+        else return "";
     }
 private:
     Ui::ClientInput *ui;
