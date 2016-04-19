@@ -15,7 +15,7 @@ class Dislike : public QMainWindow
 public:
     explicit Dislike(QWidget *parent = 0);
     int label;
-    string ingrediantName;
+    vector<string> ingrediantName;
     QCheckBox *ing1;
     QCheckBox *ing2;
     QCheckBox *ing3;

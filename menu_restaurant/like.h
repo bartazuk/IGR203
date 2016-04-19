@@ -24,7 +24,7 @@ public:
 
     QVBoxLayout *platLayout;
     int label;
-    string ingrediantName;
+    vector<string> ingrediantName;
     vector<platIntro*> list;
     vector<platIntro*> deletedlist;
 

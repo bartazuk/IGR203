@@ -85,30 +85,29 @@ void Dislike::confirmSLOT()
 {
     if(ing1->isChecked())
     {
-     ingrediantName = "boeuf";
+     ingrediantName.push_back( "Boeuf");
      emit confirm();
     }
     if(ing2->isChecked())
     {
-     ingrediantName = "canard";
+     ingrediantName.push_back( "canard");
       emit confirm();
     }
     if(ing3->isChecked())
     {
-     ingrediantName = "viande";
+     ingrediantName.push_back( "viande");
       emit confirm();
     }
     if(ing4->isChecked())
     {
-     ingrediantName = "huitre";
-     cout<<ingrediantName<<endl;
+     ingrediantName.push_back("huitre");
       emit confirm();
     }
 
     if(ing5->isChecked())
     {
-     ingrediantName = "thon";
-     emit confirm();
+     ingrediantName.push_back("thon");
+      emit confirm();
     }
 
      cout<<"label    "<<label<<endl;
