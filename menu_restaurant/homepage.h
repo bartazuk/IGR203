@@ -24,6 +24,7 @@ public slots:
     void menuClicked() {emit menu();}
     void orderClicked() {emit order();}
     void helpClicked() {emit help();}
+    void guideClicked();
 
 private:
     Ui::HomePage *ui;

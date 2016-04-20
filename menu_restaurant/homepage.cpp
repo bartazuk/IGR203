@@ -4,6 +4,7 @@
 #include <QHBoxLayout>
 #include <QPushButton>
 #include <QLabel>
+#include <QMessageBox>
 
 HomePage::HomePage(QWidget *parent) :
     QMainWindow(parent),
@@ -65,11 +66,17 @@ HomePage::HomePage(QWidget *parent) :
     connect(menuButton,SIGNAL(clicked(bool)),this,SLOT(menuClicked()));
     connect(orderButton,SIGNAL(clicked(bool)),this,SLOT(orderClicked()));
     connect(serviceButton,SIGNAL(clicked(bool)),this,SLOT(helpClicked()));
-    connect(helpButton,SIGNAL(clicked(bool)),this,SLOT(helpClicked()));
+    connect(helpButton,SIGNAL(clicked(bool)),this,SLOT(guideClicked()));
 
 }
 
 HomePage::~HomePage()
 {
     delete ui;
+}
+
+void HomePage::guideClicked()
+{
+    QMessageBox::StandardButton msg = QMessageBox::information(NULL,"Guide","Il est le guidage du EMenu. \rVous pouvez choisir vos plats par le bouton 'menu'. Vous pouvez également ajouter vos préférences et enlever les plats que vous ne mangez pas.\rDe plus, vous pouvez vérifier votre ordre par le bouton 'view your order'et demander le service par le bouton 'service'",QMessageBox::Ok);
+
 }
