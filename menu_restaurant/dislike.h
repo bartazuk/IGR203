@@ -24,7 +24,7 @@ public:
     QCheckBox *ing6;
     QCheckBox *ing7;
     QWidget* getWidget() {return choicesWidget;}
-
+    void restoreWidget() {mainLayout->insertWidget(0,choicesWidget); choicesWidget->show();}
 signals:
      void confirm();
 
@@ -34,6 +34,7 @@ public slots:
 
 private:
     QWidget* choicesWidget;
+    QVBoxLayout* mainLayout;
 };
 
 #endif // DISLIKE_H

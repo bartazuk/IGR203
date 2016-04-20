@@ -3,13 +3,11 @@
 #include "menu.h"
 #include <numeric>
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
+MainWindow::MainWindow(Like* _like, Dislike* _dislike, QWidget *parent) :
+    preference(_like),ne_mange_pas(_dislike),QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    preference = new Like();// Ruimin-initialize like window
-    ne_mange_pas = new Dislike();//Ruimin-initialize dislike window
 
     ui->scrollAreaWidget_list_entree->setLayout(&entreeLayout);
     ui->scrollAreaWidget_list_plat->setLayout(&platLayout);
@@ -18,13 +16,14 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->scrollAreaWidget_list_platdujour->setLayout(&platdujourLayout);
 
     panier = new PanierWindow();
-    std::cout <<Menu::Instance().entrees.begin()->first << std::endl;
-//    for(map<string,plat*>::iterator it=Menu::Instance().platDuJour.begin(); it!=Menu::Instance().platDuJour.end();it++){
-//        std::cout << it->second->getNom() << std::endl;
-//        platIntro* intro = new platIntro(it->second);
-//        platdujourList.push_back(intro);
-//        platdujourLayout.addWidget(intro);
-//    }
+
+    for(map<string,plat*>::iterator it=Menu::Instance().platDuJour.begin(); it!=Menu::Instance().platDuJour.end();it++){
+        platIntro* intro = new platIntro(it->second);
+        platdujourList.push_back(intro);
+        platdujourLayout.addWidget(intro);
+        connect(intro,SIGNAL(afficherDetails(plat*)),this, SLOT(afficheDetail(plat*)));
+        connect(intro,SIGNAL(addToPanier(plat*)),panier,SLOT(addPlat(plat*)));
+    }
 
     for(map<string,plat*>::iterator it=Menu::Instance().entrees.begin(); it!=Menu::Instance().entrees.end();it++){
         if(!it->second) continue;
@@ -58,11 +57,17 @@ MainWindow::MainWindow(QWidget *parent) :
         connect(intro,SIGNAL(afficherDetails(plat*)),this, SLOT(afficheDetail(plat*)));
         connect(intro,SIGNAL(addToPanier(plat*)),panier,SLOT(addPlat(plat*)));
     }
-    std::cout << "hi" << std::endl;
+    afficheDetail(Menu::Instance().entrees["Huitre"],0);
+    afficheDetail(Menu::Instance().entrees["Huitre"],1);
+    afficheDetail(Menu::Instance().plats["Confit de canard et haricots"],2);
+    afficheDetail(Menu::Instance().desserts["creme brulee"],3);
+    afficheDetail(Menu::Instance().boissons["vin rouge"],4);
 
  //update preference
-   connect(preference, SIGNAL(confirm()),this,SLOT(like_label()));
-    connect(ne_mange_pas, SIGNAL(confirm()),this,SLOT(dislike_label()));
+//   connect(preference, SIGNAL(confirm()),this,SLOT(like_label()));
+    connect(preference, SIGNAL(confirm()),this,SLOT(updateLike()));
+//    connect(ne_mange_pas, SIGNAL(confirm()),this,SLOT(dislike_label()));
+    connect(ne_mange_pas, SIGNAL(confirm()),this,SLOT(updatedisLike()));
     connect(ui->panierBtn, SIGNAL(clicked(bool)),this,SLOT(openPanier()));
     connect(panier,SIGNAL(panierUpdated()),this,SLOT(updatePanier()));
     connect(panier,SIGNAL(orderComfirmed()),this,SLOT(submitOrder()));
@@ -74,8 +79,9 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::afficheDetail(plat *selectedPlat){
-    int index_window=ui->tabWidget->currentIndex();
+void MainWindow::afficheDetail(plat *selectedPlat, int index_window){
+    std::cout << index_window << std::endl;
+    if(index_window==-1) index_window=ui->tabWidget->currentIndex();
     switch(index_window)
     {
     case 0:
@@ -107,8 +113,6 @@ void MainWindow::afficheDetail(plat *selectedPlat){
     QPixmap *image = selectedPlat->getImage();
     QPixmap image2 = image->scaled(200,200,Qt::KeepAspectRatio);
     ui->e_picture->setPixmap(image2);
-    cout<<"hello 22222"<<endl;
-
     }
     case 2:
     {
@@ -284,14 +288,14 @@ void MainWindow::on_platdujour_adddislike_clicked()
 }
 
 void MainWindow::updateLike(){
-    updateLike(&platdujourLayout,platdujourList);
+//    updateLike(&platdujourLayout,platdujourList);
     updateLike(&entreeLayout,entreeList);
     updateLike(&platLayout,platList);
-    updateLike(&dessertLayout,dessertList);
-    updateLike(&boissonLayout,boissonList);
+//    updateLike(&dessertLayout,dessertList);
+//    updateLike(&boissonLayout,boissonList);
 }
 
-void MainWindow::updateDislike(){
+void MainWindow::updatedisLike(){
     updatedisLike(&platdujourLayout,platdujourList);
     updatedisLike(&entreeLayout,entreeList);
     updatedisLike(&platLayout,platList);
@@ -301,7 +305,13 @@ void MainWindow::updateDislike(){
 
 void MainWindow::updateLike( QVBoxLayout* layout_,vector<platIntro*> &list_)
 {
-        cout<<"label    "<<preference->label<<endl;
+//        cout<<"label    "<<preference->label<<endl;
+    if(layout_ == &entreeLayout){
+        cout << "entree" << endl;
+    }
+    else if(layout_ == &platLayout){
+        cout << "plat" << endl;
+    }
         int len =0;
         vector<platIntro*> deletedlist;
         vector<platIntro*>::iterator iter;
@@ -326,18 +336,15 @@ void MainWindow::updateLike( QVBoxLayout* layout_,vector<platIntro*> &list_)
 
         for (iter=deletedlist.begin();iter!=deletedlist.end();iter++)
         {
-             cout<<(**iter)._plat->getNom()<<endl;
+//             cout<<(**iter)._plat->getNom()<<endl;
              layout_->insertWidget(0,(*iter));
 
         }
-   preference->ingrediantName.clear();
+//   preference->ingrediantName.clear();
 
 }
  void MainWindow:: updatedisLike(QVBoxLayout* layout_,vector<platIntro*> &list_)
  {
-
-     cout<<"label    "<<preference->label<<endl;
-
      int len =0;
      vector<platIntro*> deletedlist;
      deletedlist.clear();
@@ -352,14 +359,15 @@ void MainWindow::updateLike( QVBoxLayout* layout_,vector<platIntro*> &list_)
                {
                if ((**iter)._plat->getIngredient()[i]==(*iter1))
                {
-               cout<<(**iter)._plat->getIngredient()[i]<<endl;
+//               cout<<(**iter)._plat->getIngredient()[i]<<endl;
                (**iter).hide();
                break;
                }
                }
            }
          }
-     ne_mange_pas->ingrediantName.clear();
+//     ne_mange_pas->ingrediantName.clear();
+
  }
 
 

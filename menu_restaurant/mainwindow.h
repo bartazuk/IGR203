@@ -19,13 +19,12 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(Like* _like, Dislike* _dislike, QWidget *parent = 0);
     ~MainWindow();
 //    void SetUpLayout();
     void updateLike(QVBoxLayout* layout_,vector<platIntro*> &list_);
     void updatedisLike(QVBoxLayout* layout_,vector<platIntro*> &list_);
-    void updateLike();
-    void updateDislike();
+
     vector<platIntro*> entreeList;
     vector<platIntro*> platList;
     vector<platIntro*> dessertList;
@@ -39,17 +38,18 @@ public:
     QVBoxLayout platdujourLayout;
 
     PanierWindow* panier;
-    void setClient(){ panier->setClient();}
     void setPreference(Like* _like) {preference = _like;}
     void setDislike(Dislike* _dislike) {ne_mange_pas = _dislike;}
 
 signals:
     void orderSubmitted();
-
+public slots:
+    void updateLike();
+    void updatedisLike();
 private slots:
     void submitOrder(){emit orderSubmitted();}
 
-     void afficheDetail(plat*);
+    void afficheDetail(plat*,int index_window=-1);
      void on_boisson_addlike_clicked();
 
      void on_boisson_adddislike_clicked();
