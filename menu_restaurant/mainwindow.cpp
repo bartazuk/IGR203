@@ -34,7 +34,9 @@ MainWindow::MainWindow(QWidget *parent) :
         connect(intro,SIGNAL(afficherDetails(plat*)),this, SLOT(afficheDetail(plat*)));
         connect(intro,SIGNAL(addToPanier(plat*)),panier,SLOT(addPlat(plat*)));
     }
-    for(map<string,plat*>::iterator it=Menu::Instance().plats.begin(); it!=Menu::Instance().plats.end();it++){
+       //Menu::Instance().entrees.begin();
+       // afficheDetail(plat1);
+        for(map<string,plat*>::iterator it=Menu::Instance().plats.begin(); it!=Menu::Instance().plats.end();it++){
         if(!it->second) continue;
         platIntro* intro = new platIntro(it->second);
         platList.push_back(intro);
@@ -66,6 +68,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->panierBtn, SIGNAL(clicked(bool)),this,SLOT(openPanier()));
     connect(panier,SIGNAL(panierUpdated()),this,SLOT(updatePanier()));
     connect(panier,SIGNAL(orderComfirmed()),this,SLOT(submitOrder()));
+
+
+
+
 }
 
 
@@ -100,8 +106,9 @@ void MainWindow::afficheDetail(plat *selectedPlat){
     ui->e_calorie->setText(QString::number(selectedPlat->getCalorie()));
     ui->e_note->setText(QString::number(selectedPlat->getAvis()));
     std::string s;
-    vector<std::string> v=selectedPlat->getIngredient();
-    s = accumulate(v.begin(), v.end(), s);
+   // vector<std::string> v=selectedPlat->getDescription();
+   // s = accumulate(v.begin(), v.end(), s);
+    s=selectedPlat->getDescription();
     ui->e_description->setText(QString::fromStdString(s));
 
     QPixmap *image = selectedPlat->getImage();
@@ -118,8 +125,9 @@ void MainWindow::afficheDetail(plat *selectedPlat){
     ui->p_calorie->setText(QString::number(selectedPlat->getCalorie()));
     ui->p_note->setText(QString::number(selectedPlat->getAvis()));
     std::string s;
-    vector<std::string> v=selectedPlat->getIngredient();
-    s = accumulate(v.begin(), v.end(), s);
+    //vector<std::string> v=selectedPlat->getIngredient();
+    //s = accumulate(v.begin(), v.end(), s);
+     s=selectedPlat->getDescription();
     ui->p_description->setText(QString::fromStdString(s));
 
     QPixmap *image = selectedPlat->getImage();
@@ -134,8 +142,9 @@ void MainWindow::afficheDetail(plat *selectedPlat){
     ui->d_calorie->setText(QString::number(selectedPlat->getCalorie()));
     ui->d_note->setText(QString::number(selectedPlat->getAvis()));
     std::string s;
-    vector<std::string> v=selectedPlat->getIngredient();
-    s = accumulate(v.begin(), v.end(), s);
+    //vector<std::string> v=selectedPlat->getIngredient();
+    //s = accumulate(v.begin(), v.end(), s);
+    s=selectedPlat->getDescription();
     ui->d_description->setText(QString::fromStdString(s));
 
     QPixmap *image = selectedPlat->getImage();
@@ -150,8 +159,9 @@ void MainWindow::afficheDetail(plat *selectedPlat){
     ui->b_calorie->setText(QString::number(selectedPlat->getCalorie()));
     ui->b_note->setText(QString::number(selectedPlat->getAvis()));
     std::string s;
-    vector<std::string> v=selectedPlat->getIngredient();
-    s = accumulate(v.begin(), v.end(), s);
+    //vector<std::string> v=selectedPlat->getIngredient();
+    //s = accumulate(v.begin(), v.end(), s);
+     s=selectedPlat->getDescription();
     ui->b_description->setText(QString::fromStdString(s));
 
     QPixmap *image = selectedPlat->getImage();
