@@ -5,7 +5,7 @@ Dislike::Dislike(QWidget *parent) : QMainWindow(parent)
 
  //mainwidget and mainlayout
  QWidget * mainwidget = new QWidget;
- QVBoxLayout * mainLayout = new QVBoxLayout;
+ mainLayout = new QVBoxLayout;
 
  ////welcome
  QHBoxLayout * Layout0 = new QHBoxLayout;
@@ -85,6 +85,7 @@ setCentralWidget(mainwidget);
 
 void Dislike::confirmSLOT()
 {
+    ingrediantName.clear();
     if(ing1->isChecked())
     {
      ingrediantName.push_back( "Boeuf");

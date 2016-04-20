@@ -19,5 +19,10 @@
         <file>image/tarte aux pommes.jpeg</file>
         <file>image/vin blanc.jpg</file>
         <file>image/vin rouge.jpg</file>
+        <file>image/background.jpg</file>
+        <file>image/service.jpg</file>
+        <file>image/help.jpg</file>
+        <file>image/myorder.jpg</file>
+        <file>image/menu.jpg</file>
     </qresource>
 </RCC>
