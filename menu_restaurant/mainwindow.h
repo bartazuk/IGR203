@@ -10,6 +10,7 @@
 #include "like.h"
 #include "dislike.h"
 #include "panierwindow.h"
+#include <QFile>
 namespace Ui {
 class MainWindow;
 }

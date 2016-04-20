@@ -17,6 +17,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->scrollAreaWidget_list_dessert->setLayout(&dessertLayout);
     ui->scrollAreaWidget_list_platdujour->setLayout(&platdujourLayout);
 
+    QFile qss(":/qss/skin.qss");
+    qss.open(QFile::ReadOnly);
+    if(qss.isOpen())
+       {
+          qApp->setStyleSheet(qss.readAll());
+          qss.close();
+       }
+
+
+
     panier = new PanierWindow();
     std::cout <<Menu::Instance().entrees.begin()->first << std::endl;
 //    for(map<string,plat*>::iterator it=Menu::Instance().platDuJour.begin(); it!=Menu::Instance().platDuJour.end();it++){
