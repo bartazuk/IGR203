@@ -9,7 +9,7 @@ Like::Like(QWidget *parent) : QMainWindow(parent)
 
 //mainwidget and mainlayout
 QWidget* mainWidget = new QWidget;
-QVBoxLayout * mainLayout = new QVBoxLayout;
+mainLayout = new QVBoxLayout;
 
 //welcome
  QHBoxLayout * Layout0 = new QHBoxLayout;
@@ -94,7 +94,7 @@ QVBoxLayout * mainLayout = new QVBoxLayout;
 
 void Like::confirmSLOT()
 {
-
+    ingrediantName.clear();
    if(ing1->isChecked())
    {
     ingrediantName.push_back("Boeuf");

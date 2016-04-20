@@ -29,12 +29,14 @@ public:
     vector<platIntro*> deletedlist;
 
     QWidget* getWidget() { return choicesWidget;}
+    QWidget* restoreWidget() {mainLayout->insertWidget(0,choicesWidget); choicesWidget->show();}
 signals:
     void confirm();
 public slots:
     void confirmSLOT();
 private:
     QWidget* choicesWidget;
+    QVBoxLayout * mainLayout;
 
 };
 
