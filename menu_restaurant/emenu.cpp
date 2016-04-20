@@ -34,6 +34,7 @@ void eMenu::introFinished(){
     dislike->confirmSLOT();
     mw->updateLike();
     mw->updatedisLike();
+    mw->setClient();
 }
 
 void eMenu::openMenu(){

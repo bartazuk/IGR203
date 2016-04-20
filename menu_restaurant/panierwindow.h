@@ -21,18 +21,18 @@ public:
 //    explicit PanierWindow(QWidget *parent = 0);
     PanierWindow(QWidget *parent=0,vector<plat*> _listPlat={}, int _numClient=0, int _somme=0, int _numTable=0);
     ~PanierWindow();
-//    void setClient() {
-//        cltInput = new clientEdit();
-//        std::cout << "set client" << std::endl;
-//        connect(cltInput,SIGNAL(cancel(bool)),this,SLOT(updateClient(bool)));
-//        clist.push_back("---");
-//        for(int i=0; i<4; i++){
-//            QString name = ClientInput::Instance().getClient(i);
-//            if(!name.isEmpty()){
-//                clist.push_back(name);
-//            }
-//        }
-//    }
+    void setClient() {
+        cltInput = new clientEdit();
+        std::cout << "set client" << std::endl;
+        connect(cltInput,SIGNAL(cancel(bool)),this,SLOT(updateClient(bool)));
+        clist.push_back("---");
+        for(int i=0; i<4; i++){
+            QString name = ClientInput::Instance().getClient(i);
+            if(!name.isEmpty()){
+                clist.push_back(name);
+            }
+        }
+    }
     int getNumPlat() const {return numPlat;}
 
     void setStatic();

@@ -41,6 +41,7 @@ public:
     PanierWindow* panier;
     void setPreference(Like* _like) {preference = _like;}
     void setDislike(Dislike* _dislike) {ne_mange_pas = _dislike;}
+    void setClient(){ panier->setClient();}
 
 signals:
     void orderSubmitted();
