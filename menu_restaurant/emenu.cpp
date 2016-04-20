@@ -24,12 +24,16 @@ void eMenu::start(){
 
 void eMenu::introFinished(){
     intro->close();
-    mw = new MainWindow();
+    like->restoreWidget();
+    dislike->restoreWidget();
+    mw = new MainWindow(like,dislike);
+
     connect(mw,SIGNAL(orderSubmitted()),this,SLOT(updateOrder()));
     mw->show();
-    mw->setClient();
-    mw->updateDislike();
+    like->confirmSLOT();
+    dislike->confirmSLOT();
     mw->updateLike();
+    mw->updatedisLike();
 }
 
 void eMenu::openMenu(){

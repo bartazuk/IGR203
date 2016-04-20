@@ -44,7 +44,7 @@ IntroWindow::IntroWindow(QWidget *like, QWidget* _dislike,QWidget *parent) : pre
 }
 
 void IntroWindow::onNextClicked(){
-    if(qIdx==2) emit FINISHED();
+    if(qIdx==2) onSkipClicked();
     else{
         qIdx++;
         introLabel.setText(introQuestion[qIdx]);
@@ -65,5 +65,7 @@ void IntroWindow::onNextClicked(){
 }
 
 void IntroWindow::onSkipClicked(){
+    preference->show();
+    dislike->show();
     emit FINISHED();
 }
